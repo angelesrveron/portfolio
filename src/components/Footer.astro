@@ -1,0 +1,93 @@
+---
+import behance from "../assets/behance.png";
+import linkedin from "../assets/linkedin.png";
+import instagram from "../assets/instagram.png";
+---
+<div class="footer-basic">
+        <footer>
+            <div class="social"><a href="https://www.linkedin.com/in/ángeles-verón-553b78255"><img
+            id="linkedin"
+            src={linkedin.src}
+            alt="LinkedIn"
+            fetchpriority="high"
+            width="35"
+          /></a><a href="https://www.behance.net/ngelesvern"><img
+            id="behance"
+            src={behance.src}
+            alt="Behance"
+            fetchpriority="high"
+            width="35"
+          /></a><a href="https://www.instagram.com/"><img
+            id="instagram"
+            src={instagram.src}
+            alt="Instagram"
+            fetchpriority="high"
+            width="35"
+          /></a></div>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="#">Inicio</a></li>
+                <li class="list-inline-item"><a href="/servicios">Servicios</a></li>
+                <li class="list-inline-item"><a href="/sobremi">Sobre mí</a></li>
+                <li class="list-inline-item"><a href="mailto:angelesrveron@gmail.com">angelesrveron@gmail.com</a></li>
+            </ul>
+            <p class="copyright">Ángeles Verón © 2025</p>
+        </footer>
+    </div>
+
+    <style>
+        .footer-basic {
+  padding:40px 0;
+  background-color: hotpink;
+  color:#ffffff;
+   font-family: "Poppins", sans-serif;
+    font-weight: 400;
+}
+
+.footer-basic ul {
+  padding:0;
+  list-style:none;
+  text-align:center;
+  font-size:15px;
+  line-height:1.6;
+  margin-bottom:0;
+}
+
+.footer-basic li {
+  padding:0 10px;
+}
+
+.footer-basic ul a {
+  color:inherit;
+  text-decoration:none;
+}
+
+.footer-basic ul a:hover {
+ font-weight: bold;
+ color: #fff;
+}
+
+.footer-basic .social {
+  text-align:center;
+}
+
+.footer-basic .social > a {
+  width:40px;
+  height:40px;
+  line-height:40px;
+  display:inline-block;
+  text-align:center;
+  margin:0 5px;
+  color:inherit;
+}
+
+
+
+.footer-basic .copyright {
+  margin-top:15px;
+  text-align:center;
+  font-size:13px;
+  color:#7e003b;
+  margin-bottom:0;
+}
+
+    </style>

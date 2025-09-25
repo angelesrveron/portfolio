@@ -1,0 +1,123 @@
+<div class="portfolio">
+  <h1>Algunos de mis trabajos</h1>
+  <div class="stack">
+    <div class="work size1">Trabajo 1</div>
+    <div class="work size2">Trabajo 2</div>
+    <div class="work size3">Trabajo 3</div>
+    <div class="work size4">Trabajo 4</div>
+
+   <a href="/proyectos"> <button class="see-all">Ver todos</button></a>
+
+   <a href="/proyectos"> <button class="trabajemos">Trabajemos juntos!</button></a>
+
+  </div>
+</div>
+
+<style>
+  .portfolio {
+    padding: 10px 0;
+    text-align: center;
+  }
+
+  .stack {
+    position: relative;
+    min-height: 100vh;
+  }
+
+  .work {
+    position: absolute;
+    top: -5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    border-radius: 12px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    cursor: pointer;
+    font-size: 1.5rem;
+  }
+
+  .size1 {
+    width: 300px;
+    height: 300px;
+    background: hotpink;
+  }
+  .size2 {
+    width: 400px;
+    height: 250px;
+    background: deeppink;
+  }
+  .size3 {
+    width: 320px;
+    height: 380px;
+    background: purple;
+  }
+  .size4 {
+    width: 450px;
+    height: 280px;
+    background: violet;
+  }
+
+  .see-all {
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    border: none;
+    background: hotpink;
+    color: white;
+    cursor: pointer;
+  }
+  h1 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 4em;
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const works = gsap.utils.toArray(".work");
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".stack",
+        start: "top 60%",
+        end: "+=" + works.length * 400,
+        scrub: true,
+        pin: true,
+        anticipatePin: 1,
+      },
+    });
+
+    works.forEach((work) => {
+      tl.to(work as HTMLElement, {
+        opacity: 1,
+        x: gsap.utils.random(-80, 80),
+        y: gsap.utils.random(-80, 80),
+        rotation: gsap.utils.random(-15, 15),
+        duration: 1,
+      });
+    });
+
+    tl.to(".see-all", {
+      opacity: 1,
+      y: -30,
+      duration: 1,
+    });
+  });
+</script>

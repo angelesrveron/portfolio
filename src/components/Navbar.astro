@@ -1,0 +1,75 @@
+<nav>
+  <div>
+    <a href="/sobremi" class="nav-link" id="link-sobre">Sobre mí</a>
+    <a href="/proyectos" class="nav-link" id="link-proy">Proyectos</a>
+    <a href="/servicios" class="nav-link" id="link-serv">Servicios</a>
+  </div>
+</nav>
+<style>
+  nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    z-index: 1000;
+    
+  }
+  nav div {
+    padding: 1em;
+  }
+  a:hover {
+    color: hotpink;
+    font-weight: bold;
+  }
+ 
+  a {
+    cursor: pointer;
+    text-decoration: none;
+    color: #000;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.3em;
+    text-transform: uppercase;
+  }
+
+  a:nth-child(2) {
+    margin: 0 30px 0 30px;
+  }
+</style>
+<script>
+  import gsap from "gsap";
+  import { SplitText } from "gsap/SplitText";
+
+  gsap.registerPlugin(SplitText);
+
+  const links = document.querySelectorAll(".nav-link");
+
+  links.forEach((link) => {
+    const split = new SplitText(link, { type: "chars" }); // Divide en caracteres
+
+    // Al pasar el mouse, sube instantáneamente (opcional efecto rápido)
+    link.addEventListener("mouseenter", () => {
+      gsap.to(split.chars, {
+        y: -8,
+        duration: 0.2,
+        stagger: 0.03,
+        ease: "power1.out",
+      });
+    });
+
+    // Al salir el mouse, baja suavemente
+    link.addEventListener("mouseleave", () => {
+      gsap.to(split.chars, {
+        y: 0,
+        duration: 0.5,
+        stagger: 0.03,
+        ease: "power2.out",
+      });
+    });
+  });
+</script>
