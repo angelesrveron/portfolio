@@ -1,8 +1,8 @@
 <nav>
   <div>
+    <a href="/" class="nav-link" id="link-serv">Inicio</a>
     <a href="/sobremi" class="nav-link" id="link-sobre">Sobre mí</a>
     <a href="/proyectos" class="nav-link" id="link-proy">Proyectos</a>
-    <a href="/servicios" class="nav-link" id="link-serv">Servicios</a>
   </div>
 </nav>
 <style>
@@ -50,9 +50,9 @@
   const links = document.querySelectorAll(".nav-link");
 
   links.forEach((link) => {
-    const split = new SplitText(link, { type: "chars" }); // Divide en caracteres
+    const split = new SplitText(link, { type: "chars" }); 
 
-    // Al pasar el mouse, sube instantáneamente (opcional efecto rápido)
+    // Al pasar el mouse sube 
     link.addEventListener("mouseenter", () => {
       gsap.to(split.chars, {
         y: -8,
@@ -62,7 +62,7 @@
       });
     });
 
-    // Al salir el mouse, baja suavemente
+    // Al salir el mouse baja
     link.addEventListener("mouseleave", () => {
       gsap.to(split.chars, {
         y: 0,

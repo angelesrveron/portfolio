@@ -1,0 +1,39 @@
+
+
+[
+  {
+    "id": 1,
+    "title": "War of Rhythms",
+    "description": "Diseño de personaje completo (Biblia de Personaje) para Eigna, la protagonista del proyecto de animación 'War of Rhythms' (Guerra de Ritmos). El proyecto se desarrolla en el planeta Ritmia, donde la música es la fuerza vital, pero está siendo oprimida por el género GrindCore liderado por el dictador Piggo. Eigna, una joven apasionada por el Punk, vive una doble vida para liderar a su banda, Ynsurgenx, en una lucha por restaurar la libertad musical y la expresión individual. El diseño de Eigna se presenta en un Estilo Cartoon 2D , con características exageradas y estilizadas , proporciones que usan formas cuadradas, triangulares y punteagudas para transmitir agresividad, energía, solidez y confianza. La ficha incluye paleta de colores (donde el violeta se asocia con la creatividad y el verde con la energía) , bocetos, giro 360°, expresiones (con el detalle de que sus antenas y mejillas cambian según su estado de ánimo) , y carta de manos.",
+    "imageUrl": "/images/disenopersonaje.png",
+    "pdfLink": "https://drive.google.com/file/d/1BxVuVPe8BEel1vrNE8Am9Jha04pZAvgI/view?usp=sharing",
+    "galleryImages": [
+      "/images/wof3.jpg",
+      "/images/wof2.jpg",
+      "/images/wof1.jpg"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Animación Pinterest",
+    "description": "Este proyecto consistió en la animación del logo de Pinterest utilizando Adobe After Effects, realizado para la asignatura de 'Técnicas de Animación'. El objetivo principal fue aplicar los principios de la animación y las herramientas de After Effects para dar vida a la iconografía distintiva del logo (la letra 'P' que simula un pin o alfiler). Aspectos clave trabajados: Preparación de Activos: Importación y separación de los elementos gráficos del logo (usualmente de Adobe Illustrator) para manipularlos de forma independiente en After Effects. Manipulación de Propiedades: Creación de keyframes para animar las propiedades esenciales como la posición, escala, rotación y opacidad. Principios de Animación: Aplicación de la curva de valor (Graph Editor) y el Easy Ease (F9) para lograr movimientos fluidos, dinámicos y orgánicos, evitando un aspecto robótico.",
+    "imageUrl": "/images/pinterest.png",
+    "pdfLink": "https://drive.google.com/file/d/1TeZ0sDkLJUaPlODEJT5XEXy1HQ4hx9zB/view?usp=sharing",
+    "galleryImages": [
+      "/images/pinterest.png",
+      "/images/pinterest.gif"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Animación The Office",
+    "description": "Este proyecto final para la asignatura Técnicas de Animación consiste en la recreación y animación vectorial de un fragmento de 15 segundos de un capítulo de The Office (EE. UU.). La pieza demuestra un dominio completo del flujo de trabajo 2D: todos los activos, incluyendo personajes y escenarios, fueron diseñados desde cero en Adobe Illustrator como vectores listos para animación. Utilizando Adobe After Effects, se aplicaron principios de animación clásica, enfocándose en un timing y spacing preciso (mediante Easy Ease y el editor de gráficos) para conseguir un movimiento orgánico. El desafío clave fue la sincronización labial (lipsync) y la orquestación de la pose a pose de los personajes, resultando en una pieza que combina una ejecución técnica sólida con el estilo visual limpio del motion graphics.",
+    "imageUrl": "/images/theoffice.png",
+    "pdfLink": "https://drive.google.com/file/d/1h3bJi_XxsiueYxdDwmSYpISht2IW1Uj_/view?usp=sharing",
+    "galleryImages": [
+      "/images/disenopersonaje.png",
+      "/images/disenopersonaje.png",
+      "/images/pinterest.png"
+    ]
+  }
+]

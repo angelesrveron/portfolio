@@ -1,15 +1,38 @@
+---
+import projects from "../data/projects.json";
+---
+
 <div class="portfolio">
-  <h1>Algunos de mis trabajos</h1>
-  <div class="stack">
-    <div class="work size1">Trabajo 1</div>
-    <div class="work size2">Trabajo 2</div>
-    <div class="work size3">Trabajo 3</div>
-    <div class="work size4">Trabajo 4</div>
+  <h1>Algunos de mis trabajos</h1>
+  <div class="stack">
+    {
+      projects.map((project, index) => {
+        const sizeClass = `size${(index % 4) + 1}`; // Esto cicla size1, size2, size3, size4
+        
+        const projectId = String(project.id);
 
-   <a href="/proyectos"> <button class="see-all">Ver todos</button></a>
+        return (
+          <a
+            
+            href={`/${projectId}`} 
+            class={`work ${sizeClass}`}
+            data-title={project.title}
+          >
+            <img
+              src={project.imageUrl}
+              alt={`Imagen del proyecto ${project.title}`}
+              class="work-image"
+              loading="lazy"
+            />
 
+            <span class="work-title">{project.title}</span>
+          </a>
+        );
+      })
+    }
 
-  </div>
+    <a href="/proyectos"> <button class="see-all">Ver todos</button></a>
+  </div>
 </div>
 
 <style>
@@ -17,10 +40,8 @@
     padding: 10px 0;
     text-align: center;
   }
- .trabajemos{
-
-
- }
+  .trabajemos {
+  }
 
   .stack {
     position: relative;
@@ -32,9 +53,9 @@
     top: -5%;
     left: 50%;
     transform: translate(-50%, -50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block; 
+    overflow: hidden; 
+
     color: white;
     font-weight: bold;
     border-radius: 12px;
@@ -42,28 +63,68 @@
     opacity: 0;
     cursor: pointer;
     font-size: 1.5rem;
+
+    transition: transform 0.3s ease;
   }
 
+  .work-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+    transition: transform 0.3s ease; 
+  }
+
+  .work-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+
+    background: rgba(0, 0, 0, 0.7); 
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .work:hover .work-title {
+    opacity: 1; 
+  }
+
+  .work:hover {
+    transform: translate(-50%, -50%) scale(1.03); 
+  }
+  .work:hover .work-image {
+    transform: scale(1.05); 
+  }
+
+  
   .size1 {
+       font-family: "Poppins", sans-serif;
+       font-size: 15px;
     width: 300px;
     height: 300px;
-    background: hotpink;
   }
   .size2 {
+       font-family: "Poppins", sans-serif;
+       font-size: 15px;
+
     width: 400px;
     height: 250px;
-    background: deeppink;
   }
   .size3 {
+       font-family: "Poppins", sans-serif;
+       font-size: 15px;
+    
     width: 320px;
     height: 380px;
-    background: purple;
   }
-  .size4 {
-    width: 450px;
-    height: 280px;
-    background: violet;
-  }
+  
 
   .see-all {
     opacity: 0;
