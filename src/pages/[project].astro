@@ -1,0 +1,295 @@
+---
+import Layout from "../layouts/Layout.astro";
+import projects from "../data/projects.json";
+import Navbar from "../components/Navbar.astro";
+import ContactForm from "../components/ContactForm.astro";
+
+// --- GENERACIÓN DE RUTAS ---
+export async function getStaticPaths() {
+  return projects.map((project) => ({
+    params: {
+      project: project.slug,
+    },
+    props: {
+      projectData: project,
+    },
+  }));
+}
+
+// --- CARGA DE DATOS DE LA PÁGINA (Simplificado y Limpio) ---
+const { projectData } = Astro.props;
+
+const { title, description, pdfLink, galleryImages } = projectData;
+const currentProjectId = String(projectData.id);
+const mainImage = galleryImages[0];
+const secondaryImages = galleryImages.slice(1);
+---
+
+<head>
+  <meta charset="UTF-8" />
+</head>
+<Navbar />
+
+<Layout title={title}>
+  <article
+
+
+    class="max-w-4xl mx-auto my-12 p-6 bg-white rounded-xl shadow-lg font-sans"
+
+  >
+    <header class="mb-8">
+      <h1 class="text-4xl font-extrabold mb-2 text-gray-900">{title}</h1>
+
+      <div class="flex flex-wrap gap-4 mt-4">
+        {
+          pdfLink && (
+            <a
+              href={pdfLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="live-link py-2 px-4 bg-pink-500 text-white font-semibold rounded-lg hover:bg-pink-600 transition duration-200"
+            >
+                            Ver proyecto original                      {" "}
+            </a>
+          )
+        }
+        <button
+
+
+
+
+
+          id="open-contact-modal"
+
+
+
+
+
+          class="py-2 px-4 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition duration-200"
+
+
+
+
+        >
+          ✉️ ¡Contáctame por este proyecto!
+        </button>
+      </div>
+    </header>
+
+    <div class="project-content">
+      <p
+
+
+
+
+        class="text-lg leading-relaxed text-gray-700 mt-6 border-b pb-6 border-gray-200"
+
+
+
+      >
+        {description}
+      </p>
+
+      <section class="mt-8 pt-8 border-t border-gray-200">
+        <h2 class="text-3xl font-bold mb-6 text-gray-800">
+          Galería de proyecto
+        </h2>
+
+        <div class="main-image-display overflow-hidden rounded-lg mb-4">
+          <img
+
+
+
+
+
+
+            src={mainImage}
+
+
+
+
+
+
+            alt={`Imagen principal de ${title}`}
+
+
+
+
+
+
+            id="gallery-main-image"
+
+
+
+
+
+
+            class="w-full h-auto max-h-[500px] object-contain rounded-lg transition-opacity duration-300"
+
+
+
+
+
+          />
+        </div>
+
+        <div class="flex gap-2 overflow-x-auto pb-2">
+          {
+            galleryImages.map((imgUrl, index) => (
+              <img
+                src={imgUrl}
+                alt={`Miniatura ${index + 1}`}
+                class={`w-20 h-16 object-cover rounded-md cursor-pointer border-2 transition-all duration-200 
+                  ${index === 0 ? "border-pink-500 active" : "border-transparent hover:border-pink-300"}`}
+                data-img-url={imgUrl}
+              />
+            ))
+          }
+        </div>
+      </section>
+    </div>
+  </article>
+</Layout>
+
+<div id="contact-modal" class="modal-overlay">
+  <div class="modal-content bg-white p-6 md:p-8 rounded-xl shadow-2xl relative">
+    <button
+
+
+
+      id="close-contact-modal"
+
+
+
+      class="modal-close-button absolute top-4 right-6 text-4xl text-gray-500 hover:text-gray-800 transition leading-none font-light"
+
+
+
+      aria-label="Cerrar">&times;</button
+    >
+
+    <ContactForm
+
+
+
+      initialSubject={`Consulta sobre el proyecto: ${title}`}
+
+
+
+      projectId={currentProjectId}
+
+
+    />
+  </div>
+</div>
+
+<script>
+  import { gsap } from "gsap";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    // Tu lógica de Galería (GSAP para fade)
+    const mainImage = document.getElementById(
+      "gallery-main-image"
+    ) as HTMLImageElement;
+    const thumbnails = document.querySelectorAll(
+      ".thumbnail-image"
+    ) as NodeListOf<HTMLElement>; // ... (Código de galería se mantiene igual) ...
+    if (mainImage && thumbnails.length > 0) {
+      thumbnails.forEach((thumbnail) => {
+        thumbnail.addEventListener("click", () => {
+          const newUrl = thumbnail.getAttribute("data-img-url")!;
+          thumbnails.forEach((t) =>
+            t.classList.remove("active", "border-pink-500")
+          );
+          thumbnail.classList.add("active", "border-pink-500"); // Tailwind: Resaltar activo
+
+          gsap.to(mainImage, {
+            opacity: 0,
+            duration: 0.2, // Reducimos la duración
+            onComplete: () => {
+              mainImage.src = newUrl;
+              gsap.to(mainImage, {
+                opacity: 1,
+                duration: 0.3,
+              });
+            },
+          });
+        });
+      });
+    } // Lógica de Apertura y Cierre del Modal (Se mantiene)
+
+    const openButton = document.getElementById("open-contact-modal");
+    const closeButton = document.getElementById("close-contact-modal");
+    const modal = document.getElementById("contact-modal");
+    const modalContent = document.querySelector(
+      ".modal-content"
+    ) as HTMLElement; // Para animar el contenido
+    if (openButton && closeButton && modal && modalContent) {
+      const closeModal = () => {
+        gsap.to(modalContent, {
+          y: -30,
+          opacity: 0,
+          duration: 0.2,
+          onComplete: () => {
+            modal.classList.remove("is-open");
+            document.body.style.overflow = "";
+            gsap.set(modalContent, { opacity: 1, y: 0 }); // Reseteamos para la próxima vez
+          },
+        });
+      };
+
+      openButton.addEventListener("click", () => {
+        modal.classList.add("is-open");
+        document.body.style.overflow = "hidden";
+        gsap.fromTo(
+          modalContent,
+          { opacity: 0, y: 50 },
+          { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.7)" }
+        ); // Animación con GSAP
+      });
+
+      closeButton.addEventListener("click", closeModal);
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.classList.contains("is-open")) {
+          closeModal();
+        }
+      });
+    }
+  });
+</script>
+<style>
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition:
+      opacity 0.3s,
+      visibility 0.3s;
+  }
+  .modal-overlay.is-open {
+    visibility: visible;
+    opacity: 1;
+  }
+  .modal-content {
+    max-width: 650px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+  }
+</style>

@@ -1,7 +1,90 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import projects from "../data/projects.json";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+// Nota: Asegúrate de que el JSON tenga el campo "slug" en cada objeto.
 ---
-<Layout>
-  <h1>Sobre mí</h1>
-  <p>probando</p>
+
+<head>
+  <meta charset="UTF-8" />
+</head>
+<Navbar />
+<Layout title="Mis Proyectos | Portafolio">
+  <section class="max-w-7xl mx-auto py-12 px-4 font-sans md:px-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+      {
+        projects.map((project, index) => {
+          return (
+            <a
+              href={`/${project.slug}`}
+              class="project-card bg-white rounded-xl shadow-lg hover:shadow-2xl overflow-hidden text-gray-800 transition-all duration-300 transform hover:-translate-y-1 hover:scale-[1.02]"
+              style="text-decoration: none;"
+            >
+                           {" "}
+              <div class="h-52 overflow-hidden">
+                               {" "}
+                <img
+                  src={project.imageUrl}
+                  alt={`Imagen de ${project.title}`}
+                  loading="lazy"
+                  class="w-full h-full object-cover transition-transform duration-500 card-image-scale"
+                />
+                             {" "}
+              </div>
+                           {" "}
+              <div class="p-4 relative">
+                               {" "}
+                <h2 class="text-xl font-bold mb-1">{project.title}</h2>         
+                     {" "}
+                <span class="text-pink-600 font-semibold opacity-0 card-link-overlay-tailwind">
+                  Ver Detalles →
+                </span>
+                             {" "}
+              </div>
+                         {" "}
+            </a>
+          );
+        })
+      }
+    </div>
+  </section>
+  <Footer />
+
+  <style>
+    /*      * SOLO MANTENEMOS ESTILOS ESPECÍFICOS DE ANIMACIÓN * EL RESTO DEL LAYOUT AHORA ES TAILWIND */ /* Clase para el estado inicial de GSAP (transparente y movido) */
+    .project-card {
+      opacity: 0;
+      transform: translateY(50px) rotateX(10deg);
+    } /* Animación de la Imagen al pasar el mouse (CSS puro) */
+    .project-card:hover .card-image-scale {
+      transform: scale(1.05);
+    } /* Animación de Opacidad del texto al pasar el mouse (CSS puro) */
+    .project-card:hover .card-link-overlay-tailwind {
+      opacity: 1;
+    }
+  </style>
+  <script>
+    /* El script de GSAP/ScrollTrigger se mantiene igual, ya que es lógica pura */ import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+    gsap.registerPlugin(ScrollTrigger);
+    document.addEventListener("DOMContentLoaded", () => {
+      const cards = gsap.utils.toArray(".project-card");
+      cards.forEach((card, index) => {
+        const cardElement = card as Element;
+        gsap.to(cardElement, {
+          opacity: 1,
+          y: 0,
+          rotationX: 0,
+          duration: 0.8,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: cardElement,
+            start: "top 90%",
+            toggleActions: "play none none none",
+          },
+        });
+      });
+    });
+  </script>
 </Layout>
