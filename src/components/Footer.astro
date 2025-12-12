@@ -3,90 +3,70 @@ import behance from "../assets/behance.png";
 import linkedin from "../assets/linkedin.png";
 import instagram from "../assets/instagram.png";
 ---
-<div class="footer-basic">
-        <footer>
-            <div class="social"><a href="https://www.linkedin.com/in/ángeles-verón-553b78255"><img
-            id="linkedin"
-            src={linkedin.src}
-            alt="LinkedIn"
-            fetchpriority="high"
-            width="35"
-          /></a><a href="https://www.behance.net/ngelesvern"><img
-            id="behance"
-            src={behance.src}
-            alt="Behance"
-            fetchpriority="high"
-            width="35"
-          /></a><a href="https://www.instagram.com/"><img
-            id="instagram"
-            src={instagram.src}
-            alt="Instagram"
-            fetchpriority="high"
-            width="35"
-          /></a></div>
-            <ul class="list-inline">
-                <li class="list-inline-item"><a href="/">Inicio</a></li>
-                <li class="list-inline-item"><a href="/sobremi">Sobre mí</a></li>
-                <li class="list-inline-item"><a href="mailto:angelesrveron@gmail.com">angelesrveron@gmail.com</a></li>
-            </ul>
-            <p class="copyright">Ángeles Verón © 2025</p>
-        </footer>
-    </div>
-
-    <style>
-        .footer-basic {
-  padding:40px 0;
-  background-color: hotpink;
-  color:#ffffff;
-   font-family: "Poppins", sans-serif;
-    font-weight: 400;
-}
-
-.footer-basic ul {
-  padding:0;
-  list-style:none;
-  text-align:center;
-  font-size:15px;
-  line-height:1.6;
-  margin-bottom:0;
-}
-
-.footer-basic li {
-  padding:0 10px;
-}
-
-.footer-basic ul a {
-  color:inherit;
-  text-decoration:none;
-}
-
-.footer-basic ul a:hover {
- font-weight: bold;
- color: #fff;
-}
-
-.footer-basic .social {
-  text-align:center;
-}
-
-.footer-basic .social > a {
-  width:40px;
-  height:40px;
-  line-height:40px;
-  display:inline-block;
-  text-align:center;
-  margin:0 5px;
-  color:inherit;
-}
-
-
-
-.footer-basic .copyright {
-  margin-top:15px;
-  text-align:center;
-  font-size:13px;
-  color:#7e003b;
-  margin-bottom:0;
-}
-
-    </style>
+<div class="py-10 bg-pink-500 text-white font-sans">
+    <footer class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex justify-center space-x-5 mb-6">
+            <a 
+                href="https://www.linkedin.com/in/ángeles-verón-553b78255" 
+                class="transition hover:opacity-75"
+            >
+                <img
+                    id="linkedin"
+                    src={linkedin.src}
+                    alt="LinkedIn"
+                    width="36"
+                    height="36"
+                />
+            </a>
+            <a 
+                href="https://www.behance.net/ngelesvern"
+                class="transition hover:opacity-75"
+            >
+                <img
+                    id="behance"
+                    src={behance.src}
+                    alt="Behance"
+                    width="36"
+                    height="36"
+                />
+            </a>
+            <a 
+                href="https://www.instagram.com/"
+                class="transition hover:opacity-75"
+            >
+                <img
+                    id="instagram"
+                    src={instagram.src}
+                    alt="Instagram"
+                    width="36"
+                    height="36"
+                />
+            </a>
+        </div>
+        
+        <ul class="flex justify-center space-x-4 mb-4 text-sm md:text-base">
+            <li>
+                <a 
+                    href="/" 
+                    class="text-inherit hover:font-bold hover:text-white transition duration-200"
+                >
+                    Inicio
+                </a>
+            </li>
+            <li>
+                <a 
+                    href="/sobremi" 
+                    class="text-inherit hover:font-bold hover:text-white transition duration-200"
+                >
+                    Sobre mí
+                </a>
+            </li>
+          
+        </ul>
+        
+        <p class="mt-4 text-center text-xs text-pink-900">
+            Ángeles Verón © 2025
+        </p>
+    </footer>
+</div>

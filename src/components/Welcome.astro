@@ -8,89 +8,306 @@ import behance from "../assets/behance.png";
 import linkedin from "../assets/linkedin.png";
 import instagram from "../assets/instagram.png";
 
-import "../styles/welcome.css";
+// Se asume que el archivo welcome.css ya fue eliminado o que esta importación fue borrada.
 ---
 
-<div id="container">
+<div id="container" class="pt-28">
   <main>
-    <div id="welcome">
-      <div class="texto-presentacion">
-        <h1 class="miTexto">
+    <div id="welcome" class="flex justify-center flex-row">
+      <div class="texto-presentacion w-[40%] font-sans">
+        <h1 class="miTexto text-7xl font-bold leading-[0.8]">
           Hola, <br />
-          <span class="resaltar">soy Angie!</span>
+          <span
+            class="resaltar transition-colors duration-300 hover:text-pink-500 text-[1.2em] font-extrabold"
+            >soy Angie!</span
+          >
         </h1>
-        <p class="miTexto">
-          Soy Licenciada en Tecnología Multimedial y creadora visual de Buenos
-          Aires especializada en dar vida a ideas a través del diseño.
+
+        <p class="miTexto text-base w-[90%] mt-7 mb-7 font-medium">
+          Soy Licenciada en Tecnología Multimedial y creadora visual de Buenos  
+                  Aires especializada en dar vida a ideas a través del diseño.
         </p>
-        <a
-          href="https://www.linkedin.com/in/ángeles-verón-553b78255"
-        >
-          <img
-            id="linkedin"
-            src={linkedin.src}
-            alt="Linked In"
-            fetchpriority="high"
-            width="35"
-          /></a
-        >
-        <a href="https://www.behance.net/ngelesvern"
-          ><img
-            id="behance"
-            src={behance.src}
-            alt="Behance"
-            fetchpriority="high"
-            width="35"
-          /></a
-        >
-        <a href="https://www.instagram.com/"
-          ><img
-            id="instagram"
-            src={instagram.src}
-            alt="Instagram"
-            fetchpriority="high"
-            width="35"
-          /></a
-        >
+
+        <div class="flex space-x-4">
+          <a
+
+
+
+
+
+            href="https://www.linkedin.com/in/ángeles-verón-553b78255"
+
+
+
+
+          >
+            <img
+
+
+
+
+
+
+              id="linkedin"
+
+
+
+
+
+
+              src={linkedin.src}
+
+
+
+
+
+
+              alt="Linked In"
+
+
+
+
+
+
+              fetchpriority="high"
+
+
+
+
+
+
+              width="35"
+
+
+
+
+
+            /></a
+          >
+          <a href="https://www.behance.net/ngelesvern"
+            ><img
+
+
+
+
+
+
+              id="behance"
+
+
+
+
+
+
+              src={behance.src}
+
+
+
+
+
+
+              alt="Behance"
+
+
+
+
+
+
+              fetchpriority="high"
+
+
+
+
+
+
+              width="35"
+
+
+
+
+
+            /></a
+          >
+          <a href="https://www.instagram.com/"
+            ><img
+
+
+
+
+
+
+              id="instagram"
+
+
+
+
+
+
+              src={instagram.src}
+
+
+
+
+
+
+              alt="Instagram"
+
+
+
+
+
+
+              fetchpriority="high"
+
+
+
+
+
+
+              width="35"
+
+
+
+
+
+            /></a
+          >
+        </div>
       </div>
-      <div class="imagen-con-pensamientos">
+
+      <div class="imagen-con-pensamientos relative inline-block">
         <img
+
+
+
+
+
           id="yoImagen"
+
+
+
+
+
           src={yoImagen.src}
+
+
+
+
+
           alt="Angie"
+
+
+
+
+
           fetchpriority="high"
+
+
+
+
+
           width="350"
+
+
+
+
+
+          class="z-10 mt-[50px] block w-full h-auto"
+
+
+
+
         />
 
-        <img class="app-logo" id="ai" src={ai.src} alt="Adobe Illustrator" />
-        <img class="app-logo" id="ps" src={ps.src} alt="Adobe Photoshop" />
-        <img class="app-logo" id="ae" src={ae.src} alt="Adobe After Effects" />
-        <img class="app-logo" id="fig" src={fig.src} alt="Figma" />
+        <img
+          class="app-logo absolute w-[60px] z-10"
+          id="ai"
+          src={ai.src}
+          alt="Adobe Illustrator"
+        />
+        <img
+          class="app-logo absolute w-[60px] z-10"
+          id="ps"
+          src={ps.src}
+          alt="Adobe Photoshop"
+        />
+        <img
+          class="app-logo absolute w-[60px] z-10"
+          id="ae"
+          src={ae.src}
+          alt="Adobe After Effects"
+        />
+        <img
+          class="app-logo absolute w-[60px] z-10"
+          id="fig"
+          src={fig.src}
+          alt="Figma"
+        />
       </div>
     </div>
   </main>
 
-  <div class="marquee-container">
-    <div class="marquee-track">
-      <span class="marquee-text">
-        Contactame &nbsp;&nbsp;-&nbsp;&nbsp; Contactame
-        &nbsp;&nbsp;-&nbsp;&nbsp; Contactame &nbsp;&nbsp;-&nbsp;&nbsp;
-        Contactame &nbsp;&nbsp;-&nbsp;&nbsp; Contactame
-        &nbsp;&nbsp;-&nbsp;&nbsp; Contactame&nbsp;&nbsp;-&nbsp; &nbsp;
-        Contactame &nbsp;&nbsp;-&nbsp;&nbsp; Contactame
+  <div
+    class="marquee-container overflow-hidden w-full h-16 relative bg-pink-500 rounded-md flex items-center "
+  >
+    <div class="marquee-track flex w-max">
+      <span
+        class="marquee-text whitespace-nowrap text-white font-semibold text-xl font-sans mr-8"
+      >
+        Contactame &nbsp;&nbsp;-&nbsp;&nbsp; Contactame        
+        &nbsp;&nbsp;-&nbsp;&nbsp; Contactame &nbsp;&nbsp;-&nbsp;&nbsp;        
+        Contactame &nbsp;&nbsp;-&nbsp;&nbsp; Contactame        
+        &nbsp;&nbsp;-&nbsp;&nbsp; Contactame&nbsp;&nbsp;-&nbsp; &nbsp;        
+        Contactame &nbsp;&nbsp;-&nbsp;&nbsp; Contactame        
         &nbsp;&nbsp;-&nbsp;&nbsp;
       </span>
-      <span class="marquee-text">
-        Contactame &nbsp;&nbsp;-&nbsp;&nbsp; Contactame
-        &nbsp;&nbsp;-&nbsp;&nbsp; Contactame &nbsp;&nbsp;-&nbsp;&nbsp;
-        Contactame &nbsp;&nbsp;-&nbsp;&nbsp; Contactame
-        &nbsp;&nbsp;-&nbsp;&nbsp; Contactame &nbsp; &nbsp; - &nbsp; &nbsp;
-        Contactame &nbsp;&nbsp;-&nbsp;&nbsp; Contactame &nbsp;&nbsp; -
+      <span
+        class="marquee-text whitespace-nowrap text-white font-semibold text-xl font-sans mr-8"
+      >
+        Contactame &nbsp;&nbsp;-&nbsp;&nbsp; Contactame        
+        &nbsp;&nbsp;-&nbsp;&nbsp; Contactame &nbsp;&nbsp;-&nbsp;&nbsp;        
+        Contactame &nbsp;&nbsp;-&nbsp;&nbsp; Contactame        
+        &nbsp;&nbsp;-&nbsp;&nbsp; Contactame &nbsp; &nbsp; - &nbsp; &nbsp;      
+          Contactame &nbsp;&nbsp;-&nbsp;&nbsp; Contactame &nbsp;&nbsp; -        
         &nbsp;&nbsp;
       </span>
     </div>
   </div>
 </div>
+
+<style>
+  .imagen-con-pensamientos {
+    width: 310px; /* Ancho fijo para desktop */
+    height: auto;
+  } /* Posicionamiento de los iconos */
+  #ai {
+    top: -20px;
+    left: 160px;
+  }
+  #ps {
+    top: 50px;
+    left: 250px;
+  }
+  #ae {
+    top: 80px;
+    left: -10px;
+  }
+  #fig {
+    top: 0px;
+    left: 50px;
+  } /* Marquee track */
+  .marquee-track {
+    display: flex;
+    width: max-content;
+  } /* Animaciones y Hover */
+  .resaltar:hover {
+    color: hotpink; /* Color de hover específico */
+  }
+  main h1,
+  p {
+    cursor: default; /* Mantenemos el cursor por defecto */
+  }
+</style>
 
 <script>
   import gsap from "gsap";

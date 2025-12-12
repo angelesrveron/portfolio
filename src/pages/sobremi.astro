@@ -1,228 +1,356 @@
 ---
-
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
-
+import ContactForm from "../components/ContactForm.astro";
 ---
 
-
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
 </head>
-  <Navbar />
+<Navbar />
 
-<section class="about-me-section">
-  
-    <div class="content-wrapper"> 
-  
- 
-    
-    <div class="profile-photo-container">
-      <img src="/images/yo-foto.jpg" alt="Tu foto de perfil" class="profile-photo" loading="lazy" />
+<section
+  class="about-me-section my-24 mx-auto max-w-5xl bg-white rounded-3xl shadow-xl p-10 md:p-12 font-sans"
+>
+  <div class="content-wrapper">
+    <div class="profile-photo-container mb-8 md:mb-0">
+      <img
+
+
+
+
+        src="/images/yo-foto.jpg"
+
+
+
+
+        alt="Tu foto de perfil"
+
+
+
+
+        class="profile-photo w-full max-w-sm h-auto object-cover rounded-xl"
+
+
+
+
+        loading="lazy"
+
+
+
+      />
     </div>
 
-   
+    <h2
+      class="section-title text-4xl lg:text-5xl text-gray-800 mb-5 overflow-hidden"
+    >
+      <span class="reveal-text block">Hola!</span>
+    </h2>
 
-  <h2 class="section-title">
-      <span class="reveal-text">Hola!</span>
-  </h2>
-  
- 
+    <p class="intro-paragraph reveal-line text-gray-600 mb-4 text-lg">
+      Mi nombre es Angie. Me encanta crear y contar historias a través de mis  
+          diseños. Busco contribuir con mi creatividad y habilidades a proyectos
+            innovadores.
+    </p>
 
-   
-
-    <p class="intro-paragraph reveal-line">
-        Mi nombre es Angie. Me encanta crear y contar historias a través de mis diseños. Busco contribuir con mi creatividad y habilidades a proyectos innovadores.
-    </p>
-
-    <div class="education-section">
-        <h3>EDUCACIÓN</h3>
-        <p class="reveal-line">2022 - 2025 Universidad Maimónides</p>
-        <p class="reveal-line">Licenciada en Tecnología Multimedial</p>
-    </div>
-
-    <div class="contact-info">
-      <a  href="mailto:angelesrveron@gmail.com" class="contact-button-link reveal-line">
-          <button class="contact-button">
-              ¡Hablemos de tu proyecto!
-          </button>
-      </a>
+    <div class="education-section mb-4">
+      <h3
+        class="text-xl text-gray-800 font-bold mt-6 mb-2 border-b-2 border-gray-800 pb-1"
+      >
+        EDUCACIÓN
+      </h3>
+      <p class="reveal-line text-gray-600">
+        2022 - 2025 Universidad Maimónides
+      </p>
+      <p class="reveal-line text-gray-600">
+        Licenciada en Tecnología Multimedial
+      </p>
     </div>
 
-  </div> 
-    <div class="skills-info-container">
+    <div class="contact-info mt-5">
+      <button
 
-    <div class="skills-icon-group">
-        <h3>SKILLS</h3>
-        <div class="icon-grid">
-            <div class="skill-icon-card" data-app="Photoshop">
-                <img src="/src/assets/ps.png" alt="Logo de Photoshop" class="skill-logo" />
-            </div>
-            
-            <div class="skill-icon-card" data-app="Illustrator">
-                <img src="/src/assets/ai.png" alt="Logo de Illustrator" class="skill-logo" />
-            </div>
-            
-            <div class="skill-icon-card" data-app="Figma">
-                <img src="/src/assets/fig.png" alt="Logo de Figma" class="skill-logo" />
-            </div>
-            
-            <div class="skill-icon-card" data-app="AfterEffects">
-                <img src="/src/assets/ae.png" alt="Logo de After Effects" class="skill-logo" />
-            </div>
-            
-            
-            
-            
-        </div>
-    </div>
-    
-    <div class="skills-container">
-      
-      <div class="skill-item">
-        <div class="skill-header">
-          <h4>Illustrator</h4>
-          <span class="skill-percentage" data-level="90%">90%</span>
-        </div>
-        <div class="skill-bar-track">
-          <div class="skill-bar" data-level="90%"></div> 
-        </div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-header">
-          <h4>Photoshop</h4>
-          <span class="skill-percentage" data-level="80%">80%</span>
-        </div>
-        <div class="skill-bar-track">
-          <div class="skill-bar" data-level="80%"></div>
-        </div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-header">
-          <h4>After Effects</h4>
-          <span class="skill-percentage" data-level="80%">80%</span>
-        </div>
-        <div class="skill-bar-track">
-          <div class="skill-bar" data-level="80%"></div>
-        </div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-header">
-          <h4>Figma</h4>
-          <span class="skill-percentage" data-level="85%">85%</span>
-        </div>
-        <div class="skill-bar-track">
-          <div class="skill-bar" data-level="85%"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-    
+
+
+
+        id="open-contact-modal"
+
+
+
+
+        class="contact-button-new reveal-line w-full max-w-xs bg-pink-500 text-white font-semibold py-3 px-6 rounded-lg text-lg cursor-pointer transition-all duration-300 ease-in-out hover:bg-pink-600 hover:shadow-md"
+
+
+
+      >
+        ¡Hablemos de tu proyecto!
+      </button>
+    </div>
+  </div>
+
+  <div class="skills-info-container pt-5">
+    <div class="skills-icon-group">
+      <h3
+        class="text-xl text-gray-800 font-bold mt-6 mb-2 border-b-2 border-gray-800 pb-1"
+      >
+        SKILLS
+      </h3>
+
+      <div class="icon-grid grid grid-cols-3 gap-3 mb-8">
+        <div
+          class="skill-icon-card bg-gray-200 p-3 h-[70px] flex items-center justify-center rounded-lg cursor-default"
+          data-app="Photoshop"
+        >
+          <img
+
+
+
+
+
+
+            src="/src/assets/ps.png"
+
+
+
+
+
+
+            alt="Logo de Photoshop"
+
+
+
+
+
+
+            class="skill-logo h-10 w-auto object-contain"
+
+
+
+
+
+          />
+        </div>
+        <div
+          class="skill-icon-card bg-gray-200 p-3 h-[70px] flex items-center justify-center rounded-lg cursor-default"
+          data-app="Illustrator"
+        >
+          <img
+
+
+
+
+
+
+            src="/src/assets/ai.png"
+
+
+
+
+
+
+            alt="Logo de Illustrator"
+
+
+
+
+
+
+            class="skill-logo h-10 w-auto object-contain"
+
+
+
+
+
+          />
+        </div>
+        <div
+          class="skill-icon-card bg-gray-200 p-3 h-[70px] flex items-center justify-center rounded-lg cursor-default"
+          data-app="Figma"
+        >
+          <img
+
+
+
+
+
+
+            src="/src/assets/fig.png"
+
+
+
+
+
+
+            alt="Logo de Figma"
+
+
+
+
+
+
+            class="skill-logo h-10 w-auto object-contain"
+
+
+
+
+
+          />
+        </div>
+        <div
+          class="skill-icon-card bg-gray-200 p-3 h-[70px] flex items-center justify-center rounded-lg cursor-default"
+          data-app="AfterEffects"
+        >
+          <img
+
+
+
+
+
+
+            src="/src/assets/ae.png"
+
+
+
+
+
+
+            alt="Logo de After Effects"
+
+
+
+
+
+
+            class="skill-logo h-10 w-auto object-contain"
+
+
+
+
+
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="skills-container">
+      <div class="skill-item">
+        <div
+          class="skill-header flex justify-between items-center text-sm font-semibold"
+        >
+          <h4 class="text-base font-bold text-gray-800 mb-0">Illustrator</h4>
+          <span
+            class="skill-percentage font-bold text-pink-500"
+            data-level="90%">90%</span
+          >
+        </div>
+        <div
+          class="skill-bar-track bg-gray-200 h-2 rounded-full mb-4 overflow-hidden"
+        >
+          <div class="skill-bar bg-pink-500 h-full" data-level="90%"></div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div
+          class="skill-header flex justify-between items-center text-sm font-semibold"
+        >
+          <h4 class="text-base font-bold text-gray-800 mb-0">Photoshop</h4>
+          <span
+            class="skill-percentage font-bold text-pink-500"
+            data-level="80%">80%</span
+          >
+        </div>
+        <div
+          class="skill-bar-track bg-gray-200 h-2 rounded-full mb-4 overflow-hidden"
+        >
+          <div class="skill-bar bg-pink-500 h-full" data-level="80%"></div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div
+          class="skill-header flex justify-between items-center text-sm font-semibold"
+        >
+          <h4 class="text-base font-bold text-gray-800 mb-0">After Effects</h4>
+          <span
+            class="skill-percentage font-bold text-pink-500"
+            data-level="80%">80%</span
+          >
+        </div>
+        <div
+          class="skill-bar-track bg-gray-200 h-2 rounded-full mb-4 overflow-hidden"
+        >
+          <div class="skill-bar bg-pink-500 h-full" data-level="80%"></div>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div
+          class="skill-header flex justify-between items-center text-sm font-semibold"
+        >
+          <h4 class="text-base font-bold text-gray-800 mb-0">Figma</h4>
+          <span
+            class="skill-percentage font-bold text-pink-500"
+            data-level="85%">85%</span
+          >
+        </div>
+        <div
+          class="skill-bar-track bg-gray-200 h-2 rounded-full mb-4 overflow-hidden"
+        >
+          <div class="skill-bar bg-pink-500 h-full" data-level="85%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-  <Footer />
+<div id="contact-modal" class="modal-overlay">
+  <div class="modal-content bg-white p-6 md:p-8 rounded-xl shadow-2xl relative">
+    <button
 
+
+
+      id="close-contact-modal"
+
+
+
+      class="modal-close-button absolute top-4 right-6 text-4xl text-gray-500 hover:text-gray-800 transition leading-none font-light"
+
+
+
+      aria-label="Cerrar">&times;</button
+    >
+    <ContactForm
+
+
+
+      initialSubject="Consulta de proyecto desde la página Sobre Mí"
+
+
+
+      projectId="SobreMi_Consulta_General"
+
+
+    />
+  </div>
+</div>
+
+<Footer />
 
 <style>
-
-  
-
-.profile-photo-container {
-    grid-row: 1 / span 2; 
-    grid-column: 1 / 2;
-    margin-bottom: 0; 
-}
-
-.profile-photo {
-    width: 10%;
-    height: 100%;
-    max-width: none; 
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-
-
-
-
-  body {
-     margin: 0;
-    padding: 0;
-    background-color: #f8f8f8; 
-    font-family: 'Poppins', sans-serif;
-   font-weight: 400;
-    line-height: 1.6;
-  }
-  
-  h2, h3, h4 {
-        font-family: 'Poppins', sans-serif;
-
-    color: #333;
-    font-weight: 700;
-  }
-  h3 {
-    font-size: 1.3em;
-    color: #333;
-    margin-top: 30px;
-    margin-bottom: 10px;
-    border-bottom: 2px solid #333; 
-    padding-bottom: 5px;
-  }
-  
   .about-me-section {
-    padding: 50px;
-    margin: 90px auto; 
-    max-width: 1000px;
-    background-color: white;
-    border-radius: 20px; 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     display: grid;
-    grid-template-columns: 1.5fr 1fr; 
+    grid-template-columns: 1.5fr 1fr; /* Estructura de escritorio */
     gap: 40px;
   }
-  .contact-button-link {
-      display: block; 
-      margin-top: 20px;
-      text-decoration: none;
-  }
-  .contact-button {
-      background-color: hotpink; 
-      color: white;
-      border: none;
-      padding: 12px 25px;
-      border-radius: 8px;
-      font-size: 1em;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.1s ease;
-      width: 100%; 
-      max-width: 300px;
-  }
-  .contact-button:hover {
-      background-color: rgb(202, 34, 118); 
-      transform: translateY(-2px); 
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-
   .profile-photo-container {
-    margin-bottom: 30px;
+    grid-row: 1 / span 2;
+    grid-column: 1 / 2;
   }
-  .profile-photo {
-    width: 100%;
-    max-width: 250px; 
-    height: auto;
-    border-radius: 10px;
-    object-fit: cover;
-  }
-  .section-title {
-    font-size: 3em;
-    overflow: hidden; 
-    text-align: left; 
-    margin-bottom: 20px;
+  .contact-button-new:hover {
+    background-color: rgb(202, 34, 118); /* Tono más oscuro del rosa */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   .reveal-text {
-    display: block;
-    opacity: 0; /* Estado inicial para GSAP */
+    opacity: 0;
     transform: translateY(100%);
   }
   .intro-paragraph {
@@ -231,239 +359,204 @@ import Footer from "../components/Footer.astro";
   .reveal-line {
     opacity: 0;
     transform: translateY(10px);
-    transition: none !important; 
-  }
-  .education-section, .contact-info, .experience-section {
-    margin-bottom: 15px;
-  }
-  .small-text {
-    font-size: 0.9em;
-    margin-top: -10px;
-    display: block;
-  }
-
-
-  .skills-info-container {
-    padding-top: 20px;
-  }
-
-  .icon-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 10px;
-    margin-bottom: 30px;
+    transition: none !important;
   }
   .skill-icon-card {
-    background: #e9ecef;
-    padding: 15px; 
-    height: 70px; 
-    width: 70%;
-    display: flex; 
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    cursor: default;
-    
-    opacity: 0; /* Estado inicial para GSAP */
+    opacity: 0;
     transform: scale(0.8);
   }
-  .skill-logo {
-      max-width: 100%;
-      max-height: 100%;
-      height: 40px; 
-      width: auto;
-      object-fit: contain;
-  }
-  
-  .skills-container { padding: 0; margin: 0; }
-  .skill-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.9em; 
-    font-weight: 600;
-  }
-  .skill-item h4 { margin-bottom: 2px; }
   .skill-percentage {
-    opacity: 0; /* Estado inicial para GSAP */
-    font-weight: bold;
-    color: hotpink; 
-  }
-  .skill-bar-track {
-    background: #e9ecef;
-    height: 6px;
-    border-radius: 3px;
-    margin-bottom: 15px;
-    overflow: hidden;
+    opacity: 0;
   }
   .skill-bar {
-    background:hotpink; /* Color de la barra */
-    height: 100%;
-    width: 0; /* Estado inicial para GSAP */
+    width: 0; /* Ancho inicial para la animación GSAP */
   }
-
-  @media (max-width: 800px) {
-    .about-me-section {
-      grid-template-columns: 1fr;
-      padding: 30px 20px;
-      margin: 20px;
-    }
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition:
+      opacity 0.3s,
+      visibility 0.3s;
+  }
+  .modal-overlay.is-open {
+    visibility: visible;
+    opacity: 1;
+  }
+  .modal-content {
+    max-width: 650px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
   }
 </style>
 
 <script>
-  import { gsap } from "gsap";
-  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger);
 
-  document.addEventListener("DOMContentLoaded", () => {
-    
-    const mainContainer = document.querySelector(".about-me-section");
-    const photoGrid = document.querySelector(".profile-art-grid"); 
-    const mainPhoto = document.getElementById('main-photo');
-    const artThumb1 = document.getElementById('art-thumb-1');
-    const artThumb2 = document.getElementById('art-thumb-2');
-    const contactButton = document.querySelector(".contact-button");
-    
-    const textElements = gsap.utils.toArray(".reveal-line"); 
-    
-    
-    if (photoGrid) {
-        gsap.to(photoGrid, {
-            opacity: 1,
-            y: 0,
-            duration: 1,
-            ease: "power2.out",
-            scrollTrigger: {
-                trigger: photoGrid,
-                start: "top 85%", 
-                toggleActions: "play none none none",
-            }
+  document.addEventListener("DOMContentLoaded", () => {
+    const mainContainer = document.querySelector(".about-me-section");
+    const contactButton = document.querySelector(".contact-button-new");
+
+    const textElements = gsap.utils.toArray(".reveal-line");
+
+    // Lógica de Apertura y Cierre del Modal (GSAP)
+    const openButton = document.getElementById("open-contact-modal");
+    const closeButton = document.getElementById("close-contact-modal");
+    const modal = document.getElementById("contact-modal");
+    const modalContent = document.querySelector(
+      ".modal-content"
+    ) as HTMLElement;
+
+    if (openButton && closeButton && modal && modalContent) {
+      const closeModal = () => {
+        gsap.to(modalContent, {
+          y: -30,
+          opacity: 0,
+          duration: 0.2,
+          onComplete: () => {
+            modal.classList.remove("is-open");
+            document.body.style.overflow = "";
+            gsap.set(modalContent, { opacity: 1, y: 0 });
+          },
         });
-    }
+      };
 
+      openButton.addEventListener("click", () => {
+        modal.classList.add("is-open");
+        document.body.style.overflow = "hidden";
+        gsap.fromTo(
+          modalContent,
+          { opacity: 0, y: 50 },
+          { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.7)" }
+        );
+      });
 
-    // Hacemos que la foto principal y las miniaturas se muevan ligeramente al hacer scroll
-    if (mainPhoto && artThumb1 && artThumb2) {
-        gsap.to(mainPhoto, {
-            y: -50, // Mueve la foto principal 50px hacia arriba
-            ease: "none",
-            scrollTrigger: {
-                trigger: photoGrid,
-                start: "top bottom", 
-                end: "bottom top", // Cubre todo el viewport
-                scrub: true, // Sincroniza con el scroll
-            }
-        });
-        
-        gsap.to(artThumb1, {
-            y: 30, // Mueve el arte superior 30px hacia abajo (efecto contrario)
-            ease: "none",
-            scrollTrigger: {
-                trigger: photoGrid,
-                start: "top bottom", 
-                end: "bottom top",
-                scrub: true,
-            }
-        });
-
-        gsap.to(artThumb2, {
-            y: -20, // Mueve el arte inferior 20px hacia arriba 
-            scrollTrigger: {
-                trigger: photoGrid,
-                start: "top bottom", 
-                end: "bottom top",
-                scrub: true,
-            }
-        });
+      closeButton.addEventListener("click", closeModal);
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.classList.contains("is-open")) {
+          closeModal();
+        }
+      });
     }
 
     if (contactButton) {
-        gsap.to(contactButton, {
-            scale: 1.05,
-            duration: 0.5,
-            repeat: -1, // Repite infinitamente
-            yoyo: true, // Vuelve al estado original
-            ease: "power1.inOut",
-            delay: 3 // Espera 3 segundos después de que el texto termine de aparecer
-        });
+      gsap.to(contactButton, {
+        scale: 1.05,
+        duration: 0.5,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut",
+        delay: 3,
+      });
     }
 
+    const textTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: mainContainer,
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
+    });
 
-    const textTimeline = gsap.timeline({
-        scrollTrigger: {
-            trigger: mainContainer,
-            start: "top 80%", 
-            toggleActions: "play none none none",
-        }
-    });
+    textTimeline.to(
+      ".reveal-text",
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: "power3.out",
+      },
+      0
+    );
 
-    textTimeline.to(".reveal-text", {
-      y: 0,
-      opacity: 1,
-      duration: 0.8,
-      ease: "power3.out",
-    }, 0); 
+    textTimeline.to(
+      ".intro-paragraph",
+      {
+        opacity: 1,
+        duration: 0.6,
+      },
+      0.2
+    );
 
-    textTimeline.to(".intro-paragraph", {
-      opacity: 1,
-      duration: 0.6,
-    }, 0.2); 
+    textTimeline.to(
+      textElements,
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.5,
+        stagger: 0.1,
+      },
+      0.5
+    );
 
-    textTimeline.to(textElements, {
-        y: 0,
-        opacity: 1,
-        duration: 0.5,
-        stagger: 0.1, 
-    }, 0.5); 
+    gsap.utils.toArray(".skill-item").forEach((skillItem) => {
+      const itemElement = skillItem as Element;
+      const bar = itemElement.querySelector(".skill-bar") as HTMLElement;
+      const percentageText = itemElement.querySelector(
+        ".skill-percentage"
+      ) as HTMLElement;
+      if (!bar || !percentageText) return;
 
+      const level = bar.getAttribute("data-level")!;
 
-    gsap.utils.toArray(".skill-item").forEach((skillItem) => {
-      
-      const itemElement = skillItem as Element; 
-      
-      const bar = itemElement.querySelector('.skill-bar') as HTMLElement; 
-      const percentageText = itemElement.querySelector('.skill-percentage') as HTMLElement;
-      
-      if (!bar || !percentageText) return; 
+      const barTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: itemElement,
+          start: "top 90%",
+          toggleActions: "play none none none",
+        },
+      });
+      barTimeline.to(
+        bar,
+        {
+          width: level,
+          duration: 1.5,
+          ease: "power2.out",
+        },
+        0
+      );
+      barTimeline.to(
+        percentageText,
+        {
+          opacity: 1,
+          duration: 0.5,
+          ease: "power2.out",
+        },
+        0.5
+      );
+    });
 
-      const level = bar.getAttribute('data-level')!; 
-
-      const barTimeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: itemElement, 
-          start: "top 90%",
-          toggleActions: "play none none none",
-        }
-      });
-      
-      barTimeline.to(bar, {
-        width: level, 
-        duration: 1.5,
-        ease: "power2.out",
-      }, 0); 
-      
-      barTimeline.to(percentageText, {
-        opacity: 1, 
-        duration: 0.5,
-        ease: "power2.out",
-      }, 0.5); 
-    });
-
-
-    gsap.to(".skill-icon-card", {
-      opacity: 1,
-      scale: 1,
-      duration: 0.6,
-      ease: "back.out(1.5)",
-      stagger: 0.08, 
-      
-      scrollTrigger: {
-        trigger: ".skills-icon-group",
-        start: "top 75%",
-        toggleActions: "play none none none",
-      }
-    });
-  });
+    gsap.to(".skill-icon-card", {
+      opacity: 1,
+      scale: 1,
+      duration: 0.6,
+      ease: "back.out(1.5)",
+      stagger: 0.08,
+      scrollTrigger: {
+        trigger: ".skills-icon-group",
+        start: "top 75%",
+        toggleActions: "play none none none",
+      },
+    });
+  });
 </script>
