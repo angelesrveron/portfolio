@@ -9,7 +9,7 @@ import linkedin from "../assets/linkedin.png";
 import instagram from "../assets/instagram.png";
 ---
 
-<div id="container" class="pt-28 pb-10 px-6 max-w-7xl mx-auto">
+<div id="container" class="pt-28  px-6 max-w-7xl mx-auto">
   <main>
     <div id="welcome" class="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-4">
       
@@ -80,41 +80,29 @@ import instagram from "../assets/instagram.png";
 
     </div>
   </main>
-
-  <div class="marquee-container overflow-hidden w-full h-12 md:h-16 relative bg-pink-500 rounded-md flex items-center mt-16 md:mt-24 shadow-lg">
-    <div class="marquee-track flex w-max">
-      <span class="marquee-text whitespace-nowrap text-white font-semibold text-lg md:text-xl font-sans mr-8">
-        Contactame &nbsp;•&nbsp; Contactame &nbsp;•&nbsp; Contactame &nbsp;•&nbsp; Contactame &nbsp;•&nbsp; Contactame &nbsp;•&nbsp;
-      </span>
-      <span class="marquee-text whitespace-nowrap text-white font-semibold text-lg md:text-xl font-sans mr-8">
-        Contactame &nbsp;•&nbsp; Contactame &nbsp;•&nbsp; Contactame &nbsp;•&nbsp; Contactame &nbsp;•&nbsp; Contactame &nbsp;•&nbsp;
-      </span>
-       <span class="marquee-text whitespace-nowrap text-white font-semibold text-lg md:text-xl font-sans mr-8">
-        Contactame &nbsp;•&nbsp; Contactame &nbsp;•&nbsp; Contactame &nbsp;•&nbsp; Contactame &nbsp;•&nbsp; Contactame &nbsp;•&nbsp;
-      </span>
-    </div>
+</div> <div class="marquee-container overflow-hidden w-full h-12 md:h-16 relative bg-pink-500 flex items-center  shadow-lg">
+  <div class="marquee-track flex w-max">
+    <span class="marquee-text whitespace-nowrap text-white font-semibold text-lg md:text-xl font-sans mr-8">
+      Contactame &nbsp;•&nbsp; Contactame &nbsp;•&nbsp; Contactame &nbsp;•&nbsp; Contactame &nbsp;•&nbsp; Contactame &nbsp;•&nbsp;
+    </span>
+    <span class="marquee-text whitespace-nowrap text-white font-semibold text-lg md:text-xl font-sans mr-8">
+      Contactame &nbsp;•&nbsp; Contactame &nbsp;•&nbsp; Contactame &nbsp;•&nbsp; Contactame &nbsp;•&nbsp; Contactame &nbsp;•&nbsp;
+    </span>
+     <span class="marquee-text whitespace-nowrap text-white font-semibold text-lg md:text-xl font-sans mr-8">
+      Contactame &nbsp;•&nbsp; Contactame &nbsp;•&nbsp; Contactame &nbsp;•&nbsp; Contactame &nbsp;•&nbsp; Contactame &nbsp;•&nbsp;
+    </span>
   </div>
 </div>
 
 <style>
-  /* Aquí definimos el contenedor de la imagen.
-     En vez de width fijo 310px, usamos max-content para que abrace la imagen 
-     y se adapte si la imagen se achica en móvil.
-  */
   .imagen-con-pensamientos {
     width: max-content;
     height: auto;
   }
 
-  /* POSICIONAMIENTO DE ICONOS:
-     Ajusté un poco los valores para que queden bien 
-     alrededor de la imagen de 280px-350px.
-     Usamos % o valores relativos si quisieramos perfección absoluta,
-     pero estos valores fijos funcionan bien porque limité el tamaño de la foto.
-  */
   #ai {
     top: -10px;
-    right: 20px; /* Cambié left por right para que sea relativo al borde derecho */
+    right: 20px;
   }
   #ps {
     top: 60px;
@@ -147,7 +135,6 @@ import instagram from "../assets/instagram.png";
   import gsap from "gsap";
   import { SplitText } from "gsap/SplitText";
 
-  // Asegurar registro de plugin
   try {
     gsap.registerPlugin(SplitText);
   } catch (e) {
@@ -159,7 +146,6 @@ import instagram from "../assets/instagram.png";
     // Animación de Texto
     const miTextoElement = document.querySelector(".miTexto");
     if(miTextoElement) {
-        // Usamos try-catch por si SplitText falla
         try {
             const split = new SplitText(".miTexto", { type: "words, chars" });
             const tl = gsap.timeline();
@@ -185,7 +171,6 @@ import instagram from "../assets/instagram.png";
                 "-=0.3"
             );
         } catch (error) {
-             // Fallback si no hay SplitText: animar opacidad simple
              gsap.from(".miTexto", { opacity: 0, y: 20, duration: 1 });
         }
     }
@@ -223,7 +208,7 @@ import instagram from "../assets/instagram.png";
 
   // Animación Marquee Infinita
   gsap.to(".marquee-track", {
-    x: "-33.33%", // Ajustado para que fluya mejor con el contenido repetido
+    x: "-33.33%",
     duration: 15,
     ease: "linear",
     repeat: -1,

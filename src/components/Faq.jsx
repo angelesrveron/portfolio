@@ -5,12 +5,12 @@ const faqData = [
   {
     id: 1,
     question: "¿Trabajas de forma freelance?",
-    answer: "¡Sí! Actualmente tengo disponibilidad para tomar nuevos proyectos de diseño y desarrollo web."
+    answer: "¡Sí! Actualmente tengo disponibilidad para tomar nuevos proyectos."
   },
   {
     id: 2,
     question: "¿Qué servicios ofreces?",
-    answer: "Me especializo en Diseño UI/UX, Desarrollo Frontend con Astro/React y Branding para marcas."
+    answer: "Me especializo en Diseño, Diseño UI/UX, Branding para marcas, Social Media Design y Motion Graphics"
   },
   {
     id: 3,
@@ -20,7 +20,7 @@ const faqData = [
   {
     id: 4,
     question: "¿Cómo te contacto?",
-    answer: "Puedes usar el formulario de contacto de esta página, escribirme por LinkedIn o enviarme un email directo."
+    answer: "Puedes usar el formulario de contacto de esta página o escribirme por LinkedIn."
   }
 ];
 
@@ -35,7 +35,7 @@ export default function FaqAccordion() {
 
   return (
     <div className="max-w-2xl mx-auto my-12 px-4">
-      <h3 className="text-3xl font-bold text-center mb-8 text-gray-800">
+      <h3 className="text-3xl font-bold text-center mb-8 ">
         Preguntas Frecuentes
       </h3>
 
@@ -49,7 +49,7 @@ export default function FaqAccordion() {
               onClick={() => toggleAccordion(item.id)}
               className="w-full text-left px-6 py-4 flex justify-between items-center bg-white hover:bg-gray-50 transition-colors cursor-pointer"
             >
-              <span className="font-semibold text-gray-800 text-lg">
+              <span className="font-semibold text-lg">
                 {item.question}
               </span>
               {/* Ícono que rota si está abierto */}
