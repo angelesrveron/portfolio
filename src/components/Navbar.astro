@@ -1,62 +1,119 @@
 ---
-import DarkModeToggle from "./svelte/DarkModeToggle.svelte";
 ---
 
-<nav
-  class="flex justify-center items-center fixed top-0 left-0 w-full bg-white z-[1000]"
->
-  <div>
-    <a href="/" class="nav-link" id="link-serv">Inicio</a>
-    <a href="/sobremi" class="nav-link" id="link-sobre">Sobre mí</a>
-    <a href="/proyectos" class="nav-link" id="link-proy">Proyectos</a>
+<nav class="fixed w-full z-[1000] top-0 start-0 border-b border-gray-100 bg-white/95 backdrop-blur-sm">
+  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    
+    <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+        <span class="self-center text-2xl font-bold whitespace-nowrap text-gray-900 tracking-tight">Angie.</span>
+    </a>
+
+    <button 
+      id="menu-toggle"
+      data-collapse-toggle="navbar-default" 
+      type="button" 
+      class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200" 
+      aria-controls="navbar-default" 
+      aria-expanded="false"
+    >
+        <span class="sr-only">Abrir menú principal</span>
+        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+        </svg>
+    </button>
+
+    <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+      <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-transparent">
+        <li>
+          <a href="/" class="nav-link block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0">Inicio</a>
+        </li>
+        <li>
+          <a href="/sobremi" class="nav-link block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0">Sobre mí</a>
+        </li>
+        <li>
+          <a href="/proyectos" class="nav-link block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0">Proyectos</a>
+        </li>
+      </ul>
+    </div>
+
   </div>
 </nav>
-<style>
 
-  nav div {
-    padding: 1em;
-  }
-  a {
-    cursor: pointer;
-    text-decoration: none;
-    color: #000;
+<style>
+  /* Mantenemos tu tipografía y el estilo base */
+  .nav-link {
     font-family: "Poppins", sans-serif;
     font-weight: 400;
-    font-style: normal;
-    font-size: 1.3em;
+    font-size: 1.1em; /* Un poco más chico para que entre mejor en móvil */
     text-transform: uppercase;
-    display: inline-block; /* CRÍTICO para SplitText/GSAP */
+    display: inline-block; /* Vital para SplitText */
+    position: relative;
   }
-  a:hover {
+
+  /* Estilos específicos desktop para mantener tu diseño original */
+  @media (min-width: 768px) {
+    .nav-link {
+      font-size: 1.3em;
+    }
+  }
+
+  /* El hover rosa que te gusta */
+  .nav-link:hover {
     color: hotpink;
     font-weight: bold;
   }
-  a:nth-child(2) {
-    margin: 0 30px 0 30px;
-  }
 </style>
+
 <script>
   import gsap from "gsap";
   import { SplitText } from "gsap/SplitText";
+  
+  // Si tienes la licencia de Club GSAP, esto funcionará perfecto.
+  // Si no, SplitText podría no cargar en producción (Vercel).
+  // Asegúrate de que SplitText esté instalado correctamente.
   gsap.registerPlugin(SplitText);
+
+  // 1. LÓGICA DEL MENÚ HAMBURGUESA
+  const menuToggle = document.getElementById('menu-toggle');
+  const navbar = document.getElementById('navbar-default');
+
+  if (menuToggle && navbar) {
+    menuToggle.addEventListener('click', () => {
+      navbar.classList.toggle('hidden');
+    });
+  }
+
+  // 2. TU ANIMACIÓN ORIGINAL DE GSAP (Intacta)
   const links = document.querySelectorAll(".nav-link");
-  links.forEach((link) => {
-    const split = new SplitText(link, { type: "chars" });
-    link.addEventListener("mouseenter", () => {
-      gsap.to(split.chars, {
-        y: -8,
-        duration: 0.2,
-        stagger: 0.03,
-        ease: "power1.out",
-      });
+  
+  if (links.length > 0) {
+    links.forEach((link) => {
+      // Usamos try-catch por si SplitText falla en algún entorno
+      try {
+        const split = new SplitText(link, { type: "chars" });
+        
+        link.addEventListener("mouseenter", () => {
+          gsap.to(split.chars, {
+            y: -5, // Reduje un poco el salto para que sea más sutil
+            duration: 0.2,
+            stagger: 0.03,
+            ease: "power1.out",
+            color: "hotpink"
+          });
+        });
+        
+        link.addEventListener("mouseleave", () => {
+          gsap.to(split.chars, {
+            y: 0,
+            duration: 0.5,
+            stagger: 0.03,
+            ease: "power2.out",
+            color: "#111827" // Vuelve a gris oscuro (Tailwind gray-900)
+          });
+        });
+      } catch (error) {
+        console.warn("SplitText no se pudo cargar o inicializar", error);
+      }
     });
-    link.addEventListener("mouseleave", () => {
-      gsap.to(split.chars, {
-        y: 0,
-        duration: 0.5,
-        stagger: 0.03,
-        ease: "power2.out",
-      });
-    });
-  });
+  }
 </script>

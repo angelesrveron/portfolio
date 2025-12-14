@@ -1,60 +1,86 @@
 ---
-// Configuraciones opcionales para Formspree:
-// Nota: Astro.props permite pasar datos del componente padre ([slug].astro)
 const { initialSubject, projectId } = Astro.props; 
 
-// Si quieres que el asunto se muestre pre-llenado en el formulario:
 const subjectValue = initialSubject || "Consulta de proyecto";
 ---
 
-<section class="p-3 md:p-6 bg-white rounded-xl text-gray-800 text-left">
-    <h2 class="text-3xl font-bold text-center " id="modal-title">
+<section class="bg-white rounded-xl text-gray-800 text-left w-full max-w-2xl mx-auto">
+    <h2 class="text-2xl md:text-3xl font-bold text-center text-gray-900" id="modal-title">
         Hablemos de tu Proyecto
     </h2>
-    <p class="text-center text-gray-600 mb-4">
-        Envíame un mensaje sobre este proyecto.
+    <p class="text-center text-gray-500 mb-6 mt-2 text-sm md:text-base">
+        Envíame un mensaje y te responderé lo antes posible.
     </p>
     
-    <form id="contact-form" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <form id="contact-form" class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
         
         <input type="hidden" name="_project_id" value={projectId} />
 
         <div class="sm:col-span-1">
-            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nombre Completo:</label>
-            <input type="text" id="name" name="name" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150">
+            <label for="name" class="block text-sm font-semibold text-gray-700 mb-1">Nombre Completo:</label>
+            <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                required 
+                class="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none transition-all duration-200 bg-gray-50 focus:bg-white"
+                placeholder="Tu nombre"
+            >
         </div>
 
         <div class="sm:col-span-1">
-            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Correo Electrónico:</label>
-            <input type="email" id="email" name="email" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150">
+            <label for="email" class="block text-sm font-semibold text-gray-700 mb-1">Correo Electrónico:</label>
+            <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                required 
+                class="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none transition-all duration-200 bg-gray-50 focus:bg-white"
+                placeholder="tu@email.com"
+            >
         </div>
 
         <div class="sm:col-span-2">
-            <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Asunto:</label>
-            <input type="text" id="subject" name="subject" required 
-                   value={subjectValue}
-                   class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150">
+            <label for="subject" class="block text-sm font-semibold text-gray-700 mb-1">Asunto:</label>
+            <input 
+                type="text" 
+                id="subject" 
+                name="subject" 
+                required 
+                value={subjectValue}
+                class="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none transition-all duration-200 bg-gray-50 focus:bg-white"
+            >
         </div>
 
         <div class="sm:col-span-2">
-            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Mensaje:</label>
-            <textarea id="message" name="message" rows="3" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150 resize-y"></textarea>
+            <label for="message" class="block text-sm font-semibold text-gray-700 mb-1">Mensaje:</label>
+            <textarea 
+                id="message" 
+                name="message" 
+                rows="4" 
+                required 
+                class="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none transition-all duration-200 bg-gray-50 focus:bg-white resize-none"
+                placeholder="Cuéntame sobre tu idea..."
+            ></textarea>
         </div>
 
-        <div class="sm:col-span-2">
-            <button type="submit" id="submit-button" class="w-full py-3 px-6 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-500 focus:ring-opacity-50 transition duration-200">
-                Enviar Mensaje
+        <div class="sm:col-span-2 mt-2">
+            <button 
+                type="submit" 
+                id="submit-button" 
+                class="w-full py-3.5 px-6 bg-pink-500 text-white font-bold rounded-lg hover:bg-pink-600 active:scale-[0.98] transition-all duration-200 shadow-md hover:shadow-lg"
+            >
+                Enviar mensaje
             </button>
             
-            <p id="form-status" aria-live="polite" class=" text-center text-sm font-medium"></p>
+            <p id="form-status" aria-live="polite" class="mt-4 text-center text-sm font-medium"></p>
         </div>
 
-    
     </form>
 </section>
 
 <script>
-    const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xjknpawo'; // ⚠️ REEMPLAZA ESTO
+    const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xjknpawo'; 
 
     const form = document.getElementById('contact-form') as HTMLFormElement | null;
     const status = document.getElementById('form-status') as HTMLParagraphElement | null;
@@ -65,12 +91,12 @@ const subjectValue = initialSubject || "Consulta de proyecto";
             event.preventDefault(); 
 
             button.disabled = true;
-            status.textContent = 'Enviando...';
-            status.className = 'mt-3 text-center text-sm font-medium text-blue-600'; // Estilo Tailwind para "Enviando"
-
+            const originalText = button.innerText;
+            button.innerText = 'Enviando...';
+            status.textContent = '';
+            
             const data = new FormData(form);
             
-            // ⭐️ LLAMADA FETCH A LA API ⭐️
             try {
                 const response = await fetch(FORMSPREE_ENDPOINT, {
                     method: 'POST',
@@ -80,33 +106,35 @@ const subjectValue = initialSubject || "Consulta de proyecto";
                     }
                 });
 
-               if (response.ok) {
-        status.textContent = '✅ ¡Mensaje enviado con éxito! Te responderé pronto.';
-        status.className = 'mt-3 text-center text-sm font-medium text-green-600';
-        form.reset(); 
-        
-        // ⭐️ NUEVA LÓGICA: CERRAR EL MODAL ⭐️
-        
-        // Buscamos el elemento padre principal (el modal-overlay), que tendrá el ID 'contact-modal'
-        const modal = document.getElementById('contact-modal');
-        
-        // Esperamos un momento (por ejemplo, 1.5 segundos) para que el usuario vea el mensaje de éxito
-        setTimeout(() => {
-            if (modal) {
-                modal.classList.remove('is-open');
-                // Devolvemos el scroll al cuerpo de la página (esto es importante)
-                document.body.style.overflow = ''; 
-            }
-        }, 1500); // 1500 milisegundos (1.5 segundos)
+                if (response.ok) {
+                    status.textContent = '¡Mensaje enviado con éxito! Te responderé pronto.';
+                    status.className = 'mt-3 text-center text-sm font-bold text-green-600 animate-pulse';
+                    form.reset(); 
+                    button.innerText = '¡Enviado!';
+                    
+                    // CERRAR MODAL
+                    const modal = document.getElementById('contact-modal');
+                    setTimeout(() => {
+                        if (modal) {
+                            modal.classList.remove('is-open');
+                            document.body.style.overflow = ''; 
+                            // Restaurar botón después de cerrar
+                            button.disabled = false;
+                            button.innerText = originalText;
+                            status.textContent = '';
+                        }
+                    }, 2000);
                 } else {
-                    status.textContent = `❌ Error al enviar. Intenta de nuevo.`;
-                    status.className = 'mt-3 text-center text-sm font-medium text-red-600'; // Estilo Tailwind para "Error"
+                    status.textContent = `Hubo un error. Intenta nuevamente.`;
+                    status.className = 'mt-3 text-center text-sm font-bold text-red-600';
+                    button.disabled = false;
+                    button.innerText = originalText;
                 }
             } catch (error) {
-                status.textContent = '❌ Error de conexión. Verifica tu red.';
-                status.className = 'mt-3 text-center text-sm font-medium text-red-600'; // Estilo Tailwind para "Error"
-            } finally {
+                status.textContent = 'Error de conexión. Verifica tu internet.';
+                status.className = 'mt-3 text-center text-sm font-bold text-red-600';
                 button.disabled = false;
+                button.innerText = originalText;
             }
         });
     }

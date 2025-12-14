@@ -16,7 +16,7 @@ export default function InfoTabs() {
               : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'
           }`}
         >
-          🎓 Educación
+          Educación
         </button>
         
         <button
@@ -27,7 +27,7 @@ export default function InfoTabs() {
               : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'
           }`}
         >
-          🎨 Cursos
+          Cursos
         </button>
       </div>
 

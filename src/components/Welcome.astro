@@ -7,15 +7,15 @@ import fig from "../assets/fig.png";
 import behance from "../assets/behance.png";
 import linkedin from "../assets/linkedin.png";
 import instagram from "../assets/instagram.png";
-
-// Se asume que el archivo welcome.css ya fue eliminado o que esta importación fue borrada.
 ---
 
-<div id="container" class="pt-28">
+<div id="container" class="pt-28 pb-10 px-6 max-w-7xl mx-auto">
   <main>
-    <div id="welcome" class="flex justify-center flex-row">
-      <div class="texto-presentacion w-[40%] font-sans">
-        <h1 class="miTexto text-7xl font-bold leading-[0.8]">
+    <div id="welcome" class="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-4">
+      
+      <div class="texto-presentacion w-full md:w-[45%] font-sans text-center md:text-left order-2 md:order-1">
+        
+        <h1 class="miTexto text-5xl md:text-7xl font-bold leading-[0.9]">
           Hola, <br />
           <span
             class="resaltar transition-colors duration-300 hover:text-pink-500 text-[1.2em] font-extrabold"
@@ -23,289 +23,123 @@ import instagram from "../assets/instagram.png";
           >
         </h1>
 
-        <p class="miTexto text-base w-[90%] mt-7 mb-7 font-medium">
-          Soy Licenciada en Tecnología Multimedial y creadora visual de Buenos  
-                  Aires especializada en dar vida a ideas a través del diseño.
+        <p class="miTexto text-base md:text-lg w-full md:w-[90%] mt-6 mb-7 font-medium text-gray-700">
+          Soy Licenciada en Tecnología Multimedial y creadora visual de Buenos  
+          Aires especializada en dar vida a ideas a través del diseño.
         </p>
 
-        <div class="flex space-x-4">
-          <a
-
-
-
-
-
-            href="https://www.linkedin.com/in/ángeles-verón-553b78255"
-
-
-
-
-          >
+        <div class="flex space-x-4 justify-center md:justify-start">
+          <a href="https://www.linkedin.com/in/ángeles-verón-553b78255" target="_blank">
             <img
-
-
-
-
-
-
               id="linkedin"
-
-
-
-
-
-
               src={linkedin.src}
-
-
-
-
-
-
               alt="Linked In"
-
-
-
-
-
-
               fetchpriority="high"
-
-
-
-
-
-
               width="35"
-
-
-
-
-
-            /></a
-          >
-          <a href="https://www.behance.net/ngelesvern"
-            ><img
-
-
-
-
-
-
+              class="hover:scale-110 transition-transform"
+            />
+          </a>
+          <a href="https://www.behance.net/ngelesvern" target="_blank">
+            <img
               id="behance"
-
-
-
-
-
-
               src={behance.src}
-
-
-
-
-
-
               alt="Behance"
-
-
-
-
-
-
               fetchpriority="high"
-
-
-
-
-
-
               width="35"
-
-
-
-
-
-            /></a
-          >
-          <a href="https://www.instagram.com/"
-            ><img
-
-
-
-
-
-
+              class="hover:scale-110 transition-transform"
+            />
+          </a>
+          <a href="https://www.instagram.com/" target="_blank">
+            <img
               id="instagram"
-
-
-
-
-
-
               src={instagram.src}
-
-
-
-
-
-
               alt="Instagram"
-
-
-
-
-
-
               fetchpriority="high"
-
-
-
-
-
-
               width="35"
-
-
-
-
-
-            /></a
-          >
+              class="hover:scale-110 transition-transform"
+            />
+          </a>
         </div>
       </div>
 
-      <div class="imagen-con-pensamientos relative inline-block">
+      <div class="imagen-con-pensamientos relative inline-block order-1 md:order-2 mt-8 md:mt-0">
         <img
-
-
-
-
-
           id="yoImagen"
-
-
-
-
-
           src={yoImagen.src}
-
-
-
-
-
           alt="Angie"
-
-
-
-
-
           fetchpriority="high"
-
-
-
-
-
           width="350"
-
-
-
-
-
-          class="z-10 mt-[50px] block w-full h-auto"
-
-
-
-
+          class="z-10 block w-[280px] md:w-[350px] h-auto relative"
         />
 
-        <img
-          class="app-logo absolute w-[60px] z-10"
-          id="ai"
-          src={ai.src}
-          alt="Adobe Illustrator"
-        />
-        <img
-          class="app-logo absolute w-[60px] z-10"
-          id="ps"
-          src={ps.src}
-          alt="Adobe Photoshop"
-        />
-        <img
-          class="app-logo absolute w-[60px] z-10"
-          id="ae"
-          src={ae.src}
-          alt="Adobe After Effects"
-        />
-        <img
-          class="app-logo absolute w-[60px] z-10"
-          id="fig"
-          src={fig.src}
-          alt="Figma"
-        />
+        <img class="app-logo absolute w-[50px] md:w-[60px] z-10" id="ai" src={ai.src} alt="Illustrator" />
+        <img class="app-logo absolute w-[50px] md:w-[60px] z-10" id="ps" src={ps.src} alt="Photoshop" />
+        <img class="app-logo absolute w-[50px] md:w-[60px] z-10" id="ae" src={ae.src} alt="After Effects" />
+        <img class="app-logo absolute w-[50px] md:w-[60px] z-10" id="fig" src={fig.src} alt="Figma" />
       </div>
+
     </div>
   </main>
 
-  <div
-    class="marquee-container overflow-hidden w-full h-16 relative bg-pink-500 rounded-md flex items-center "
-  >
+  <div class="marquee-container overflow-hidden w-full h-12 md:h-16 relative bg-pink-500 rounded-md flex items-center mt-16 md:mt-24 shadow-lg">
     <div class="marquee-track flex w-max">
-      <span
-        class="marquee-text whitespace-nowrap text-white font-semibold text-xl font-sans mr-8"
-      >
-        Contactame &nbsp;&nbsp;-&nbsp;&nbsp; Contactame        
-        &nbsp;&nbsp;-&nbsp;&nbsp; Contactame &nbsp;&nbsp;-&nbsp;&nbsp;        
-        Contactame &nbsp;&nbsp;-&nbsp;&nbsp; Contactame        
-        &nbsp;&nbsp;-&nbsp;&nbsp; Contactame&nbsp;&nbsp;-&nbsp; &nbsp;        
-        Contactame &nbsp;&nbsp;-&nbsp;&nbsp; Contactame        
-        &nbsp;&nbsp;-&nbsp;&nbsp;
+      <span class="marquee-text whitespace-nowrap text-white font-semibold text-lg md:text-xl font-sans mr-8">
+        Contactame &nbsp;•&nbsp; Contactame &nbsp;•&nbsp; Contactame &nbsp;•&nbsp; Contactame &nbsp;•&nbsp; Contactame &nbsp;•&nbsp;
       </span>
-      <span
-        class="marquee-text whitespace-nowrap text-white font-semibold text-xl font-sans mr-8"
-      >
-        Contactame &nbsp;&nbsp;-&nbsp;&nbsp; Contactame        
-        &nbsp;&nbsp;-&nbsp;&nbsp; Contactame &nbsp;&nbsp;-&nbsp;&nbsp;        
-        Contactame &nbsp;&nbsp;-&nbsp;&nbsp; Contactame        
-        &nbsp;&nbsp;-&nbsp;&nbsp; Contactame &nbsp; &nbsp; - &nbsp; &nbsp;      
-          Contactame &nbsp;&nbsp;-&nbsp;&nbsp; Contactame &nbsp;&nbsp; -        
-        &nbsp;&nbsp;
+      <span class="marquee-text whitespace-nowrap text-white font-semibold text-lg md:text-xl font-sans mr-8">
+        Contactame &nbsp;•&nbsp; Contactame &nbsp;•&nbsp; Contactame &nbsp;•&nbsp; Contactame &nbsp;•&nbsp; Contactame &nbsp;•&nbsp;
+      </span>
+       <span class="marquee-text whitespace-nowrap text-white font-semibold text-lg md:text-xl font-sans mr-8">
+        Contactame &nbsp;•&nbsp; Contactame &nbsp;•&nbsp; Contactame &nbsp;•&nbsp; Contactame &nbsp;•&nbsp; Contactame &nbsp;•&nbsp;
       </span>
     </div>
   </div>
 </div>
 
 <style>
+  /* Aquí definimos el contenedor de la imagen.
+     En vez de width fijo 310px, usamos max-content para que abrace la imagen 
+     y se adapte si la imagen se achica en móvil.
+  */
   .imagen-con-pensamientos {
-    width: 310px; /* Ancho fijo para desktop */
+    width: max-content;
     height: auto;
-  } /* Posicionamiento de los iconos */
+  }
+
+  /* POSICIONAMIENTO DE ICONOS:
+     Ajusté un poco los valores para que queden bien 
+     alrededor de la imagen de 280px-350px.
+     Usamos % o valores relativos si quisieramos perfección absoluta,
+     pero estos valores fijos funcionan bien porque limité el tamaño de la foto.
+  */
   #ai {
-    top: -20px;
-    left: 160px;
+    top: -10px;
+    right: 20px; /* Cambié left por right para que sea relativo al borde derecho */
   }
   #ps {
-    top: 50px;
-    left: 250px;
+    top: 60px;
+    right: -20px;
   }
   #ae {
-    top: 80px;
+    top: 90px;
     left: -10px;
   }
   #fig {
-    top: 0px;
-    left: 50px;
-  } /* Marquee track */
+    top: 10px;
+    left: 20px;
+  }
+
   .marquee-track {
     display: flex;
     width: max-content;
-  } /* Animaciones y Hover */
-  .resaltar:hover {
-    color: hotpink; /* Color de hover específico */
   }
-  main h1,
-  p {
-    cursor: default; /* Mantenemos el cursor por defecto */
+  
+  .resaltar:hover {
+    color: hotpink;
+  }
+  
+  main h1, p {
+    cursor: default;
   }
 </style>
 
@@ -313,35 +147,51 @@ import instagram from "../assets/instagram.png";
   import gsap from "gsap";
   import { SplitText } from "gsap/SplitText";
 
-  gsap.registerPlugin(SplitText);
+  // Asegurar registro de plugin
+  try {
+    gsap.registerPlugin(SplitText);
+  } catch (e) {
+    console.warn("SplitText no disponible");
+  }
 
   document.addEventListener("DOMContentLoaded", () => {
-    const split = new SplitText(".miTexto", { type: "words, chars" });
+    
+    // Animación de Texto
+    const miTextoElement = document.querySelector(".miTexto");
+    if(miTextoElement) {
+        // Usamos try-catch por si SplitText falla
+        try {
+            const split = new SplitText(".miTexto", { type: "words, chars" });
+            const tl = gsap.timeline();
+            
+            tl.from(split.words, {
+                y: 50,
+                opacity: 0,
+                stagger: 0.05,
+                duration: 0.5,
+                ease: "power2.out",
+            });
 
-    const tl = gsap.timeline();
+            // Animación iconos sociales
+            tl.from(
+                ["#linkedin", "#behance", "#instagram"],
+                {
+                    y: 30,
+                    opacity: 0,
+                    duration: 0.6,
+                    stagger: 0.2,
+                    ease: "back.out(1.7)",
+                },
+                "-=0.3"
+            );
+        } catch (error) {
+             // Fallback si no hay SplitText: animar opacidad simple
+             gsap.from(".miTexto", { opacity: 0, y: 20, duration: 1 });
+        }
+    }
 
-    tl.from(split.words, {
-      y: 50,
-      opacity: 0,
-      stagger: 0.05,
-      duration: 0.5,
-      ease: "power2.out",
-    });
-
-    tl.from(
-      ["#linkedin", "#behance", "#instagram"],
-      {
-        y: 30,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.2,
-        ease: "back.out(1.7)",
-      },
-      "-=0.3"
-    );
-
+    // Animación Iconos Flotantes (Hover)
     const appLogos = document.querySelectorAll(".app-logo");
-
     if (appLogos.length > 0) {
       appLogos.forEach((logo) => {
         logo.addEventListener("mouseenter", () => {
@@ -371,8 +221,9 @@ import instagram from "../assets/instagram.png";
     }
   });
 
+  // Animación Marquee Infinita
   gsap.to(".marquee-track", {
-    x: "-50%",
+    x: "-33.33%", // Ajustado para que fluya mejor con el contenido repetido
     duration: 15,
     ease: "linear",
     repeat: -1,

@@ -3,53 +3,57 @@ import behance from "../assets/behance.png";
 import linkedin from "../assets/linkedin.png";
 import instagram from "../assets/instagram.png";
 ---
-<div class="py-10 bg-pink-500 text-white font-sans">
+
+<div class="py-8 md:py-10 bg-pink-500 text-white font-sans mt-auto">
     <footer class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="flex justify-center space-x-5 mb-6">
+        <div class="flex justify-center gap-6 mb-6">
             <a 
                 href="https://www.linkedin.com/in/ángeles-verón-553b78255" 
-                class="transition hover:opacity-75"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="transition hover:opacity-75 hover:scale-110 duration-200"
             >
                 <img
                     id="linkedin"
                     src={linkedin.src}
                     alt="LinkedIn"
-                    width="36"
-                    height="36"
+                    class="w-8 h-8 md:w-9 md:h-9 object-contain"
                 />
             </a>
             <a 
                 href="https://www.behance.net/ngelesvern"
-                class="transition hover:opacity-75"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="transition hover:opacity-75 hover:scale-110 duration-200"
             >
                 <img
                     id="behance"
                     src={behance.src}
                     alt="Behance"
-                    width="36"
-                    height="36"
+                    class="w-8 h-8 md:w-9 md:h-9 object-contain"
                 />
             </a>
             <a 
                 href="https://www.instagram.com/"
-                class="transition hover:opacity-75"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="transition hover:opacity-75 hover:scale-110 duration-200"
             >
                 <img
                     id="instagram"
                     src={instagram.src}
                     alt="Instagram"
-                    width="36"
-                    height="36"
+                    class="w-8 h-8 md:w-9 md:h-9 object-contain"
                 />
             </a>
         </div>
         
-        <ul class="flex justify-center space-x-4 mb-4 text-sm md:text-base">
+        <ul class="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-4 text-sm md:text-base font-medium">
             <li>
                 <a 
                     href="/" 
-                    class="text-inherit hover:font-bold hover:text-white transition duration-200"
+                    class="text-white hover:text-pink-100 hover:underline transition duration-200"
                 >
                     Inicio
                 </a>
@@ -57,15 +61,22 @@ import instagram from "../assets/instagram.png";
             <li>
                 <a 
                     href="/sobremi" 
-                    class="text-inherit hover:font-bold hover:text-white transition duration-200"
+                    class="text-white hover:text-pink-100 hover:underline transition duration-200"
                 >
                     Sobre mí
                 </a>
             </li>
-          
+              <li>
+                <a 
+                    href="/proyectos" 
+                    class="text-white hover:text-pink-100 hover:underline transition duration-200"
+                >
+                    Proyectos
+                </a>
+            </li>
         </ul>
         
-        <p class="mt-4 text-center text-xs text-pink-900">
+        <p class="mt-4 text-center text-xs text-pink-200/80">
             Ángeles Verón © 2025
         </p>
     </footer>

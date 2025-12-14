@@ -29,10 +29,10 @@
     "tools": ["After Effects", "Illustrator"],
     "challenge": "Lograr un movimiento fluido y orgánico (evitando el aspecto robótico) mediante el uso avanzado del Graph Editor y curvas de velocidad.",
     "result": "Una pieza de animación fluida que respeta la identidad de la marca, demostrando dominio en la preparación de activos vectoriales y timing.",
+    "videoUrl": "/videos/pinterest.mp4",
+
     "imageUrl": "/images/pinterest.png",
-    "pdfLink": "https://drive.google.com/file/d/1TeZ0sDkLJUaPlODEJT5XEXy1HQ4hx9zB/view?usp=sharing",
     "galleryImages": [
-      "/images/pinterest.png",
       "/images/pinterest.gif"
     ]
   },
@@ -47,12 +47,12 @@
     "tools": ["After Effects", "Illustrator"],
     "challenge": "La sincronización labial (lipsync) y la orquestación precisa del 'pose a pose' para capturar la esencia cómica y el timing de la serie original.",
     "result": "Una animación de 15 segundos con ejecución técnica sólida, que combina diseño de personajes fiel y movimiento orgánico con estilo Motion Graphics.",
+    "videoUrl": "/videos/theoffice.mp4",
     "imageUrl": "/images/theoffice.png",
-    "pdfLink": "https://drive.google.com/file/d/1h3bJi_XxsiueYxdDwmSYpISht2IW1Uj_/view?usp=sharing",
     "galleryImages": [
-      "/images/disenopersonaje.png",
-      "/images/disenopersonaje.png",
-      "/images/pinterest.png"
+      "/images/theoffice1.png",
+      "/images/theoffice2.png",
+      "/images/theoffice3.png"
     ]
   }
 ]

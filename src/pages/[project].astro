@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import projects from "../data/projects.json";
 import Navbar from "../components/Navbar.astro";
 import ContactForm from "../components/ContactForm.astro";
-import Footer from "../components/Footer.astro"; // 1. IMPORTAMOS EL FOOTER
+import Footer from "../components/Footer.astro";
 
 // --- GENERACIÓN DE RUTAS ---
 export async function getStaticPaths() {
@@ -27,6 +27,7 @@ const {
   result,
   pdfLink,
   galleryImages,
+  videoUrl,
   id,
 } = projectData;
 
@@ -42,138 +43,143 @@ const secondaryImages = galleryImages.slice(1);
 <Navbar />
 
 <Layout title={title}>
-  <main class="max-w-6xl mx-auto my-12 px-6 font-sans mt-20 ">
-    <header class="mb-12 text-center md:text-left">
-      <h1 class="text-5xl font-extrabold text-gray-900 mb-4 ">{title}</h1>
-      <p class="text-xl text-gray-500 max-w-3xl leading-relaxed">
+  <main class="max-w-6xl mx-auto mt-24 md:mt-32 mb-12 px-6 font-sans">
+    
+    <header class="mb-8 md:mb-12 text-center md:text-left">
+      <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4">{title}</h1>
+      <p class="text-lg md:text-xl text-gray-500 max-w-3xl leading-relaxed mx-auto md:mx-0">
         {description}
       </p>
     </header>
 
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
-      <div class="lg:col-span-2 space-y-12">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+      
+      <div class="lg:col-span-2 space-y-8 md:space-y-12">
+        
         <div class="space-y-4">
-          <div
-            class="rounded-2xl overflow-hidden shadow-lg border border-gray-100"
-          >
-            <img
-              src={mainImage}
-              alt={`Imagen principal de ${title}`}
-              id="gallery-main-image"
-              class="w-full h-auto object-cover transition-opacity duration-300"
-            />
-          </div>
-
-          {
-            secondaryImages.length > 0 && (
-              <div class="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
-                <img
+            <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-100 max-w-xl mx-auto">
+              <img
                   src={mainImage}
-                  alt="Vista principal"
-                  class="thumbnail-image w-24 h-24 object-cover rounded-lg cursor-pointer border-2 border-pink-500 transition-all hover:scale-105"
-                  data-img-url={mainImage}
+                  alt={`Imagen principal de ${title}`}
+                  id="gallery-main-image"
+                  class="w-full h-auto object-cover transition-opacity duration-300"
+              />
+            </div>
+
+            {secondaryImages.length > 0 && (
+            <div class="flex gap-3 overflow-x-auto pb-2 scrollbar-hide touch-pan-x">
+                <img
+                    src={mainImage}
+                    alt="Vista principal"
+                    class="thumbnail-image w-20 h-20 md:w-24 md:h-24 object-cover rounded-lg cursor-pointer border-2 border-pink-500 transition-all hover:scale-105 shrink-0"
+                    data-img-url={mainImage}
                 />
                 {secondaryImages.map((imgUrl, index) => (
-                  <img
+                <img
                     src={imgUrl}
                     alt={`Vista ${index + 1}`}
-                    class="thumbnail-image w-24 h-24 object-cover rounded-lg cursor-pointer border-2 border-transparent hover:border-pink-300 transition-all hover:scale-105"
+                    class="thumbnail-image w-20 h-20 md:w-24 md:h-24 object-cover rounded-lg cursor-pointer border-2 border-transparent hover:border-pink-300 transition-all hover:scale-105 shrink-0"
                     data-img-url={imgUrl}
-                  />
+                />
                 ))}
-              </div>
-            )
-          }
+            </div>
+            )}
         </div>
-        <section class="prose prose-lg text-gray-700">
-          <h3 class="text-2xl font-bold text-gray-900 mb-4">
+
+        <section class="prose prose-lg text-gray-700 max-w-none">
+          <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-4">
             Sobre el proyecto
           </h3>
-          <p class="whitespace-pre-line leading-relaxed">
+          <p class="whitespace-pre-line leading-relaxed text-base md:text-lg">
             {fullDescription || description}
           </p>
 
-          {
-            challenge && (
-              <div class="mt-8">
-                <h4 class="text-xl font-bold text-gray-900 mb-2">
+          {challenge && (
+            <div class="mt-8">
+              <h4 class="text-lg md:text-xl font-bold text-gray-900 mb-2">
                 Desafío
-                </h4>
-                <p>{challenge}</p>
-              </div>
-            )
-          }
+              </h4>
+              <p class="text-base md:text-lg">{challenge}</p>
+            </div>
+          )}
 
-          {
-            result && (
-              <div class="mt-8">
-                <h4 class="text-xl font-bold text-gray-900 mb-2">
-                  Resultado
-                </h4>
-                <p>{result}</p>
-              </div>
-            )
-          }
+          {result && (
+            <div class="mt-8">
+              <h4 class="text-lg md:text-xl font-bold text-gray-900 mb-2">
+                Resultado
+              </h4>
+              <p class="text-base md:text-lg">{result}</p>
+            </div>
+          )}
+
+          {/* VIDEO O BOTÓN PDF */}
+          <div class="mt-8 pt-8 border-t border-gray-100">
+            {videoUrl ? (
+               <div>
+                  <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-100 bg-black">
+                    <video 
+                        controls 
+                        class="w-full h-auto aspect-video" 
+                        poster={mainImage}
+                        src={videoUrl}
+                    >
+                        Tu navegador no soporta videos.
+                    </video>
+                  </div>
+               </div>
+            ) : (
+               pdfLink && (
+                  <div class="text-center md:text-left">
+                    <a
+                      href={pdfLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-block w-full md:w-auto text-center bg-pink-500 text-white font-bold py-4 px-8 rounded-full shadow-lg hover:bg-pink-600 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                    >
+                      Ver resultado (PDF)
+                    </a>
+                  </div>
+               )
+            )}
+          </div>
+
         </section>
       </div>
 
       <aside class="lg:col-span-1">
         <div
-          class="bg-gray-50 p-8 rounded-2xl sticky top-24 border border-gray-100 shadow-sm"
+          class="bg-gray-50 p-6 md:p-8 rounded-2xl lg:sticky lg:top-24 border border-gray-100 shadow-sm"
         >
           <h3 class="text-lg font-bold text-gray-900 mb-6 border-b pb-2">
-            Detalles del Proyecto
+            Detalles del proyecto
           </h3>
 
           <div class="space-y-6">
             <div>
-              <span
-                class="block text-sm text-gray-500 font-semibold uppercase tracking-wider"
-                >Rol</span
-              >
+              <span class="block text-sm text-gray-500 font-semibold uppercase tracking-wider">Rol</span>
               <p class="text-gray-900 font-medium">{role}</p>
             </div>
 
             <div>
-              <span
-                class="block text-sm text-gray-500 font-semibold uppercase tracking-wider"
-                >Año</span
-              >
+              <span class="block text-sm text-gray-500 font-semibold uppercase tracking-wider">Año</span>
               <p class="text-gray-900 font-medium">{year}</p>
             </div>
 
-            {
-              tools.length > 0 && (
-                <div>
-                  <span class="block text-sm text-gray-500 font-semibold uppercase tracking-wider mb-2">
-                    Stack / Herramientas
-                  </span>
-                  <div class="flex flex-wrap gap-2">
-                    {tools.map((t) => (
-                      <span class="bg-white px-3 py-1 rounded-full text-sm text-gray-700 border border-gray-200 shadow-sm">
-                        {t}
-                      </span>
-                    ))}
-                  </div>
+            {tools.length > 0 && (
+              <div>
+                <span class="block text-sm text-gray-500 font-semibold uppercase tracking-wider mb-2">Stack / Herramientas</span>
+                <div class="flex flex-wrap gap-2">
+                  {tools.map((t) => (
+                    <span class="bg-white px-3 py-1 rounded-full text-sm text-gray-700 border border-gray-200 shadow-sm">
+                      {t}
+                    </span>
+                  ))}
                 </div>
-              )
-            }
+              </div>
+            )}
           </div>
 
-          <div class="mt-8 space-y-3">
-            {
-              pdfLink && (
-                <a
-                  href={pdfLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="block w-full text-center py-3 px-4 bg-gray-900 text-white font-bold rounded-xl hover:bg-gray-800 transition shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-                >
-                  Ver documento del proyecto
-                </a>
-              )
-            }
-
+          <div class="mt-8">
             <button
               id="open-contact-modal"
               class="block w-full text-center py-3 px-4 bg-pink-500 text-white font-bold rounded-xl hover:bg-pink-600 transition shadow-lg hover:shadow-xl transform hover:-translate-y-1"
@@ -189,11 +195,13 @@ const secondaryImages = galleryImages.slice(1);
 
 <div id="contact-modal" class="modal-overlay">
   <div class="modal-content bg-white p-6 md:p-8 rounded-xl shadow-2xl relative">
+    
     <button
       id="close-contact-modal"
-      class="modal-close-button absolute top-4 right-6 text-4xl text-gray-500 hover:text-gray-800 transition leading-none font-light"
+      class="modal-close-button absolute top-2 right-3 md:top-4 md:right-6 text-3xl md:text-4xl text-gray-500 hover:text-gray-800 transition leading-none font-light z-50"
       aria-label="Cerrar">&times;</button
     >
+
     <ContactForm
       initialSubject={`Consulta sobre el proyecto: ${title}`}
       projectId={currentProjectId}
@@ -214,7 +222,6 @@ const secondaryImages = galleryImages.slice(1);
     if (mainImage && thumbnails.length > 0) {
       thumbnails.forEach((thumbnail) => {
         thumbnail.addEventListener("click", (e) => {
-          // 1. Actualizar estilos de borde
           thumbnails.forEach((t) => {
             t.classList.remove("border-pink-500");
             t.classList.add("border-transparent");
@@ -223,10 +230,8 @@ const secondaryImages = galleryImages.slice(1);
           target.classList.remove("border-transparent");
           target.classList.add("border-pink-500");
 
-          // 2. Obtener nueva URL
           const newUrl = target.getAttribute("data-img-url");
 
-          // 3. Animación GSAP suave
           if (newUrl) {
             gsap.to(mainImage, {
               opacity: 0.5,
