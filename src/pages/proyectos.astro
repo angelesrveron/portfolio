@@ -3,7 +3,6 @@ import Layout from "../layouts/Layout.astro";
 import projects from "../data/projects.json";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
-// Nota: Asegúrate de que el JSON tenga el campo "slug" en cada objeto.
 ---
 
 <head>
@@ -11,7 +10,7 @@ import Footer from "../components/Footer.astro";
 </head>
 <Navbar />
 <Layout title="Mis Proyectos | Portafolio">
-  <section class="max-w-7xl mx-auto py-12 px-4 font-sans md:px-6">
+  <section class="max-w-7xl mx-auto py-12 px-4 font-sans md:px-6 mt-11">
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
       {
         projects.map((project, index) => {
@@ -21,28 +20,23 @@ import Footer from "../components/Footer.astro";
               class="project-card bg-white rounded-xl shadow-lg hover:shadow-2xl overflow-hidden text-gray-800 transition-all duration-300 transform hover:-translate-y-1 hover:scale-[1.02]"
               style="text-decoration: none;"
             >
-                           {" "}
+              {" "}
               <div class="h-52 overflow-hidden">
-                               {" "}
+                {" "}
                 <img
                   src={project.imageUrl}
                   alt={`Imagen de ${project.title}`}
                   loading="lazy"
                   class="w-full h-full object-cover transition-transform duration-500 card-image-scale"
-                />
-                             {" "}
-              </div>
-                           {" "}
+                />{" "}
+              </div>{" "}
               <div class="p-4 relative">
-                               {" "}
-                <h2 class="text-xl font-bold mb-1">{project.title}</h2>         
-                     {" "}
+                {" "}
+                <h2 class="text-xl font-bold mb-1">{project.title}</h2>{" "}
                 <span class="text-pink-600 font-semibold opacity-0 card-link-overlay-tailwind">
                   Ver Detalles →
-                </span>
-                             {" "}
-              </div>
-                         {" "}
+                </span>{" "}
+              </div>{" "}
             </a>
           );
         })

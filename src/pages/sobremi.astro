@@ -2,6 +2,7 @@
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import ContactForm from "../components/ContactForm.astro";
+import InfoTabs from "../components/InfoTabs.jsx";
 ---
 
 <head>
@@ -15,73 +16,27 @@ import ContactForm from "../components/ContactForm.astro";
   <div class="content-wrapper">
     <div class="profile-photo-container mb-8 md:mb-0">
       <img
-
-
-
-
         src="/images/yo-foto.jpg"
-
-
-
-
         alt="Tu foto de perfil"
-
-
-
-
         class="profile-photo w-full max-w-sm h-auto object-cover rounded-xl"
-
-
-
-
         loading="lazy"
-
-
-
       />
     </div>
 
     <h2
-      class="section-title text-4xl lg:text-5xl text-gray-800 mb-5 overflow-hidden"
+      class="section-title text-4xl lg:text-5xl text-pink-500 font-bold mb-5 overflow-hidden"
     >
-      <span class="reveal-text block">Hola!</span>
+      <span class="reveal-text block mt-5">Hola!</span>
     </h2>
 
-    <p class="intro-paragraph reveal-line text-gray-600 mb-4 text-lg">
-      Mi nombre es Angie. Me encanta crear y contar historias a través de mis  
-          diseños. Busco contribuir con mi creatividad y habilidades a proyectos
-            innovadores.
+    <p class="intro-paragraph reveal-line  mb-4 text-lg max-w-md">
+      Mi nombre es Angie. Me encanta crear y contar historias a través de mis diseños. Busco contribuir con mi creatividad y habilidades a proyectos innovadores.
     </p>
 
-    <div class="education-section mb-4">
-      <h3
-        class="text-xl text-gray-800 font-bold mt-6 mb-2 border-b-2 border-gray-800 pb-1"
-      >
-        EDUCACIÓN
-      </h3>
-      <p class="reveal-line text-gray-600">
-        2022 - 2025 Universidad Maimónides
-      </p>
-      <p class="reveal-line text-gray-600">
-        Licenciada en Tecnología Multimedial
-      </p>
-    </div>
-
-    <div class="contact-info mt-5">
+    <div class="contact-info mt-10">
       <button
-
-
-
-
         id="open-contact-modal"
-
-
-
-
         class="contact-button-new reveal-line w-full max-w-xs bg-pink-500 text-white font-semibold py-3 px-6 rounded-lg text-lg cursor-pointer transition-all duration-300 ease-in-out hover:bg-pink-600 hover:shadow-md"
-
-
-
       >
         ¡Hablemos de tu proyecto!
       </button>
@@ -102,32 +57,9 @@ import ContactForm from "../components/ContactForm.astro";
           data-app="Photoshop"
         >
           <img
-
-
-
-
-
-
             src="/src/assets/ps.png"
-
-
-
-
-
-
             alt="Logo de Photoshop"
-
-
-
-
-
-
             class="skill-logo h-10 w-auto object-contain"
-
-
-
-
-
           />
         </div>
         <div
@@ -135,32 +67,9 @@ import ContactForm from "../components/ContactForm.astro";
           data-app="Illustrator"
         >
           <img
-
-
-
-
-
-
             src="/src/assets/ai.png"
-
-
-
-
-
-
             alt="Logo de Illustrator"
-
-
-
-
-
-
             class="skill-logo h-10 w-auto object-contain"
-
-
-
-
-
           />
         </div>
         <div
@@ -168,32 +77,9 @@ import ContactForm from "../components/ContactForm.astro";
           data-app="Figma"
         >
           <img
-
-
-
-
-
-
             src="/src/assets/fig.png"
-
-
-
-
-
-
             alt="Logo de Figma"
-
-
-
-
-
-
             class="skill-logo h-10 w-auto object-contain"
-
-
-
-
-
           />
         </div>
         <div
@@ -201,32 +87,9 @@ import ContactForm from "../components/ContactForm.astro";
           data-app="AfterEffects"
         >
           <img
-
-
-
-
-
-
             src="/src/assets/ae.png"
-
-
-
-
-
-
             alt="Logo de After Effects"
-
-
-
-
-
-
             class="skill-logo h-10 w-auto object-contain"
-
-
-
-
-
           />
         </div>
       </div>
@@ -298,36 +161,23 @@ import ContactForm from "../components/ContactForm.astro";
         </div>
       </div>
     </div>
+    <div class="mb-6 mt-6 reveal-line">
+    <InfoTabs client:visible />
   </div>
+  </div>
+  
 </section>
 
 <div id="contact-modal" class="modal-overlay">
   <div class="modal-content bg-white p-6 md:p-8 rounded-xl shadow-2xl relative">
     <button
-
-
-
       id="close-contact-modal"
-
-
-
       class="modal-close-button absolute top-4 right-6 text-4xl text-gray-500 hover:text-gray-800 transition leading-none font-light"
-
-
-
       aria-label="Cerrar">&times;</button
     >
     <ContactForm
-
-
-
       initialSubject="Consulta de proyecto desde la página Sobre Mí"
-
-
-
       projectId="SobreMi_Consulta_General"
-
-
     />
   </div>
 </div>

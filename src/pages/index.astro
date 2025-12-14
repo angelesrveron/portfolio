@@ -3,10 +3,23 @@ import Welcome from "../components/Welcome.astro";
 import Navbar from "../components/Navbar.astro";
 import Layout from "../layouts/Layout.astro";
 import Footer from "../components/Footer.astro";
+
+// 1. Importas tu JSON de datos
+import allProjects from "../data/projects.json";
+
+// 2. Importas el componente de React
+import ProjectSlider from "../components/ProjectSlider.jsx";
+
+// 3. (Opcional) Filtramos para mostrar solo los primeros 3 o 4 en el Slider
+//    Así no cargas un slider de 20 fotos si tienes muchos proyectos.
+const featuredProjects = allProjects.slice(0, 3);
+import FaqAccordion from "../components/Faq.jsx";
 ---
 
 <Layout>
   <Navbar />
   <Welcome />
+  <ProjectSlider projects={featuredProjects} client:load />
+  <FaqAccordion client:visible />
   <Footer />
 </Layout>
