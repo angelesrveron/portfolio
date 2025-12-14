@@ -3,6 +3,12 @@ import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import ContactForm from "../components/ContactForm.astro";
 import InfoTabs from "../components/InfoTabs.jsx";
+
+// 👇 IMPORTAMOS LAS IMÁGENES DE LOS SKILLS AQUÍ
+import psIcon from "../assets/ps.png";
+import aiIcon from "../assets/ai.png";
+import figIcon from "../assets/fig.png";
+import aeIcon from "../assets/ae.png";
 ---
 
 <head>
@@ -59,7 +65,7 @@ import InfoTabs from "../components/InfoTabs.jsx";
           data-app="Photoshop"
         >
           <img
-            src="/src/assets/ps.png"
+            src={psIcon.src} 
             alt="Logo de Photoshop"
             class="skill-logo h-10 w-auto object-contain"
           />
@@ -69,7 +75,7 @@ import InfoTabs from "../components/InfoTabs.jsx";
           data-app="Illustrator"
         >
           <img
-            src="/src/assets/ai.png"
+            src={aiIcon.src}
             alt="Logo de Illustrator"
             class="skill-logo h-10 w-auto object-contain"
           />
@@ -79,7 +85,7 @@ import InfoTabs from "../components/InfoTabs.jsx";
           data-app="Figma"
         >
           <img
-            src="/src/assets/fig.png"
+            src={figIcon.src}
             alt="Logo de Figma"
             class="skill-logo h-10 w-auto object-contain"
           />
@@ -89,7 +95,7 @@ import InfoTabs from "../components/InfoTabs.jsx";
           data-app="AfterEffects"
         >
           <img
-            src="/src/assets/ae.png"
+            src={aeIcon.src}
             alt="Logo de After Effects"
             class="skill-logo h-10 w-auto object-contain"
           />
@@ -99,66 +105,38 @@ import InfoTabs from "../components/InfoTabs.jsx";
 
     <div class="skills-container space-y-4">
       <div class="skill-item">
-        <div
-          class="skill-header flex justify-between items-center text-sm font-semibold"
-        >
+        <div class="skill-header flex justify-between items-center text-sm font-semibold">
           <h4 class="text-base font-bold text-gray-800 mb-0">Illustrator</h4>
-          <span
-            class="skill-percentage font-bold text-pink-500"
-            data-level="90%">90%</span
-          >
+          <span class="skill-percentage font-bold text-pink-500" data-level="90%">90%</span>
         </div>
-        <div
-          class="skill-bar-track bg-gray-200 h-2 rounded-full mb-1 overflow-hidden"
-        >
+        <div class="skill-bar-track bg-gray-200 h-2 rounded-full mb-1 overflow-hidden">
           <div class="skill-bar bg-pink-500 h-full" data-level="90%"></div>
         </div>
       </div>
       <div class="skill-item">
-        <div
-          class="skill-header flex justify-between items-center text-sm font-semibold"
-        >
+        <div class="skill-header flex justify-between items-center text-sm font-semibold">
           <h4 class="text-base font-bold text-gray-800 mb-0">Photoshop</h4>
-          <span
-            class="skill-percentage font-bold text-pink-500"
-            data-level="80%">80%</span
-          >
+          <span class="skill-percentage font-bold text-pink-500" data-level="80%">80%</span>
         </div>
-        <div
-          class="skill-bar-track bg-gray-200 h-2 rounded-full mb-1 overflow-hidden"
-        >
+        <div class="skill-bar-track bg-gray-200 h-2 rounded-full mb-1 overflow-hidden">
           <div class="skill-bar bg-pink-500 h-full" data-level="80%"></div>
         </div>
       </div>
       <div class="skill-item">
-        <div
-          class="skill-header flex justify-between items-center text-sm font-semibold"
-        >
+        <div class="skill-header flex justify-between items-center text-sm font-semibold">
           <h4 class="text-base font-bold text-gray-800 mb-0">After Effects</h4>
-          <span
-            class="skill-percentage font-bold text-pink-500"
-            data-level="80%">80%</span
-          >
+          <span class="skill-percentage font-bold text-pink-500" data-level="80%">80%</span>
         </div>
-        <div
-          class="skill-bar-track bg-gray-200 h-2 rounded-full mb-1 overflow-hidden"
-        >
+        <div class="skill-bar-track bg-gray-200 h-2 rounded-full mb-1 overflow-hidden">
           <div class="skill-bar bg-pink-500 h-full" data-level="80%"></div>
         </div>
       </div>
       <div class="skill-item">
-        <div
-          class="skill-header flex justify-between items-center text-sm font-semibold"
-        >
+        <div class="skill-header flex justify-between items-center text-sm font-semibold">
           <h4 class="text-base font-bold text-gray-800 mb-0">Figma</h4>
-          <span
-            class="skill-percentage font-bold text-pink-500"
-            data-level="85%">85%</span
-          >
+          <span class="skill-percentage font-bold text-pink-500" data-level="85%">85%</span>
         </div>
-        <div
-          class="skill-bar-track bg-gray-200 h-2 rounded-full mb-1 overflow-hidden"
-        >
+        <div class="skill-bar-track bg-gray-200 h-2 rounded-full mb-1 overflow-hidden">
           <div class="skill-bar bg-pink-500 h-full" data-level="85%"></div>
         </div>
       </div>
@@ -261,13 +239,10 @@ import InfoTabs from "../components/InfoTabs.jsx";
 
   document.addEventListener("DOMContentLoaded", () => {
     const mainContainer = document.querySelector(".about-me-section");
-    // Ahora seleccionamos todos los botones con esa clase (escritorio y móvil)
     const contactButtons = document.querySelectorAll(".contact-button-new");
 
     const textElements = gsap.utils.toArray(".reveal-line");
 
-    // Lógica de Apertura y Cierre del Modal
-    // CAMBIO AQUÍ: querySelectorAll para que funcionen AMBOS botones
     const openButtons = document.querySelectorAll(".open-modal-trigger");
     const closeButton = document.getElementById("close-contact-modal");
     const modal = document.getElementById("contact-modal");
@@ -285,7 +260,6 @@ import InfoTabs from "../components/InfoTabs.jsx";
         });
       };
 
-      // Asignamos el evento click a TODOS los botones de abrir
       openButtons.forEach(btn => {
           btn.addEventListener("click", () => {
             modal.classList.add("is-open");
@@ -307,7 +281,6 @@ import InfoTabs from "../components/InfoTabs.jsx";
       });
     }
 
-    // Animación de latido para los botones
     if (contactButtons.length > 0) {
       contactButtons.forEach(btn => {
         gsap.to(btn, {
