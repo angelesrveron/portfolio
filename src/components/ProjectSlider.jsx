@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 export default function ProjectSlider({ projects }) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  
+  const touchStartX = useRef(0); 
 
   if (!projects || projects.length === 0) return null;
 
@@ -17,13 +19,33 @@ export default function ProjectSlider({ projects }) {
     setCurrentIndex(newIndex);
   };
 
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e) => {
+    const touchEndX = e.changedTouches[0].clientX;
+    const deltaX = touchEndX - touchStartX.current;
+    const swipeThreshold = 50; 
+
+    if (deltaX > swipeThreshold) {
+      prevSlide();
+    } else if (deltaX < -swipeThreshold) {
+      nextSlide();
+    }
+  };
+
   const currentProject = projects[currentIndex];
 
   return (
     <div className="w-full mx-auto px-4 py-8 relative group mt-5">
       <h3 className="text-3xl font-bold text-center mb-6 md:mb-10">Proyectos destacados</h3>
 
-      <div className="relative w-full h-[300px] sm:h-[400px] rounded-xl md:rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 bg-gray-900">
+      <div 
+        className="relative w-full h-[300px] sm:h-[400px] rounded-xl md:rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 bg-gray-900"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
         
         <div 
           style={{ backgroundImage: `url(${currentProject.imageUrl})` }} 
@@ -32,7 +54,7 @@ export default function ProjectSlider({ projects }) {
 
         <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-black/70 to-transparent p-4 md:p-8 text-white">
           
-          <p className="text-xs md:text-sm font-light text-white font-normal uppercase tracking-widest mb-1 text-outline">
+          <p className="text-xs md:text-sm  text-white font-normal uppercase tracking-widest mb-1 text-outline">
             {currentProject.category || "Diseño & Desarrollo"} 
           </p>
           
@@ -50,7 +72,7 @@ export default function ProjectSlider({ projects }) {
       <button 
         onClick={prevSlide}
         aria-label="Anterior"
-        className="block md:hidden lg:group-hover:block absolute top-[calc(50%+20px)] sm:top-[calc(50%+10px)] -translate-y-1/2 left-4 md:left-5 text-2xl rounded-full p-2 bg-black/50 text-white hover:bg-pink-500 transition z-10"
+        className="hidden lg:group-hover:block absolute top-[calc(50%+20px)] sm:top-[calc(50%+10px)] -translate-y-1/2 left-4 md:left-5 text-2xl rounded-full p-2 bg-black/50 text-white hover:bg-pink-500 transition z-10"
       >
         ❮
       </button>
@@ -58,7 +80,7 @@ export default function ProjectSlider({ projects }) {
       <button 
         onClick={nextSlide}
         aria-label="Siguiente"
-        className="block md:hidden lg:group-hover:block absolute top-[calc(50%+20px)] sm:top-[calc(50%+10px)] -translate-y-1/2 right-4 md:right-5 text-2xl rounded-full p-2 bg-black/50 text-white hover:bg-pink-500 transition z-10"
+        className="hidden lg:group-hover:block absolute top-[calc(50%+20px)] sm:top-[calc(50%+10px)] -translate-y-1/2 right-4 md:right-5 text-2xl rounded-full p-2 bg-black/50 text-white hover:bg-pink-500 transition z-10"
       >
         ❯
       </button>
