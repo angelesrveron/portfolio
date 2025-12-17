@@ -1,6 +1,9 @@
 ---
-import Navbar from "../components/Navbar.astro";
-import Footer from "../components/Footer.astro";
+import Layout from "../layouts/Layout.astro"; 
+
+import Navbar from "../components/Navbar.astro"; 
+import Footer from "../components/Footer.astro"; 
+
 import ContactForm from "../components/ContactForm.astro";
 import InfoTabs from "../components/InfoTabs.jsx";
 
@@ -9,330 +12,327 @@ import aiIcon from "../assets/ai.png";
 import figIcon from "../assets/fig.png";
 import aeIcon from "../assets/ae.png";
 ---
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sobre Mí</title>
-</head>
-<Navbar />
-
-<section
-  class="about-me-section my-24 mx-auto max-w-5xl bg-white rounded-3xl shadow-xl p-6 md:p-12 font-sans grid grid-cols-1 lg:grid-cols-5 gap-10"
->
-  
-  <div class="content-wrapper lg:col-span-3">
-    <div class="profile-photo-container mb-8">
-      <img
-        src="/images/yo-foto.jpg"
-        alt="Tu foto de perfil"
-        class="profile-photo w-full max-w-sm h-auto object-cover rounded-xl mx-auto md:mx-0"
-        loading="lazy"
-      />
-    </div>
-
-    <h2
-      class="section-title text-4xl lg:text-5xl text-pink-500 font-bold mb-5 overflow-hidden text-center md:text-left"
-    >
-      <span class="reveal-text block mt-5">Hola!</span>
-    </h2>
-
-    <p class="intro-paragraph reveal-line mb-4 text-lg max-w-md text-center md:text-left mx-auto md:mx-0">
-      Mi nombre es Angie. Me encanta crear y contar historias a través de mis diseños. Busco contribuir con mi creatividad y habilidades a proyectos innovadores.
-    </p>
-
-    <div class="contact-info mt-10 hidden md:flex justify-start">
-      <button
-        class="open-modal-trigger contact-button-new reveal-line w-full max-w-xs bg-pink-500 text-white font-semibold py-3 px-6 rounded-lg text-lg cursor-pointer transition-all duration-300 ease-in-out hover:bg-pink-600 hover:shadow-md"
-      >
-        ¡Hablemos de tu proyecto!
-      </button>
-    </div>
-  </div>
-
-  <div class="skills-info-container pt-5 lg:col-span-2 border-t lg:border-t-0 lg:border-l border-gray-100 lg:pl-8 mt-8 lg:mt-0">
-    <div class="skills-icon-group">
-      <h3
-        class="text-xl text-gray-800 font-bold mt-2 mb-4 border-b-2 border-gray-800 pb-1"
-      >
-        SKILLS
-      </h3>
-
-      <div class="icon-grid grid grid-cols-3 md:grid-cols-4 lg:grid-cols-3 gap-3 mb-8">
-        
-        <div
-          class="skill-icon-card bg-gray-200 p-3 h-[70px] flex items-center justify-center rounded-lg cursor-default"
-          data-app="Illustrator"
-        >
-          <img
-            src={aiIcon.src}
-            alt="Logo de Illustrator"
-            class="skill-logo h-10 w-auto object-contain"
-          />
-        </div>
-        <div
-          class="skill-icon-card bg-gray-200 p-3 h-[70px] flex items-center justify-center rounded-lg cursor-default"
-          data-app="Figma"
-        >
-          <img
-            src={figIcon.src}
-            alt="Logo de Figma"
-            class="skill-logo h-10 w-auto object-contain"
-          />
-        </div>
-        <div
-          class="skill-icon-card bg-gray-200 p-3 h-[70px] flex items-center justify-center rounded-lg cursor-default"
-          data-app="Photoshop"
-        >
-          <img
-            src={psIcon.src} 
-            alt="Logo de Photoshop"
-            class="skill-logo h-10 w-auto object-contain"
-          />
-        </div>
-        <div
-          class="skill-icon-card bg-gray-200 p-3 h-[70px] flex items-center justify-center rounded-lg cursor-default"
-          data-app="AfterEffects"
-        >
-          <img
-            src={aeIcon.src}
-            alt="Logo de After Effects"
-            class="skill-logo h-10 w-auto object-contain"
-          />
-        </div>
-      </div>
-    </div>
-
-    <div class="skills-container space-y-4">
-      <div class="skill-item">
-        <div class="skill-header flex justify-between items-center text-sm font-semibold">
-          <h4 class="text-base font-bold text-gray-800 mb-0">Illustrator</h4>
-          <span class="skill-percentage font-bold text-pink-500" data-level="90%">90%</span>
-        </div>
-        <div class="skill-bar-track bg-gray-200 h-2 rounded-full mb-1 overflow-hidden">
-          <div class="skill-bar bg-pink-500 h-full" data-level="90%"></div>
-        </div>
-      </div>
-       <div class="skill-item">
-        <div class="skill-header flex justify-between items-center text-sm font-semibold">
-          <h4 class="text-base font-bold text-gray-800 mb-0">Figma</h4>
-          <span class="skill-percentage font-bold text-pink-500" data-level="85%">85%</span>
-        </div>
-        <div class="skill-bar-track bg-gray-200 h-2 rounded-full mb-1 overflow-hidden">
-          <div class="skill-bar bg-pink-500 h-full" data-level="85%"></div>
-        </div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-header flex justify-between items-center text-sm font-semibold">
-          <h4 class="text-base font-bold text-gray-800 mb-0">Photoshop</h4>
-          <span class="skill-percentage font-bold text-pink-500" data-level="80%">80%</span>
-        </div>
-        <div class="skill-bar-track bg-gray-200 h-2 rounded-full mb-1 overflow-hidden">
-          <div class="skill-bar bg-pink-500 h-full" data-level="80%"></div>
-        </div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-header flex justify-between items-center text-sm font-semibold">
-          <h4 class="text-base font-bold text-gray-800 mb-0">After Effects</h4>
-          <span class="skill-percentage font-bold text-pink-500" data-level="80%">80%</span>
-        </div>
-        <div class="skill-bar-track bg-gray-200 h-2 rounded-full mb-1 overflow-hidden">
-          <div class="skill-bar bg-pink-500 h-full" data-level="80%"></div>
-        </div>
-      </div>
-     
-    </div>
+<Layout title="Sobre Mí">
+<Navbar /> 
     
-    <div class="mb-6 mt-8 reveal-line">
-      <InfoTabs client:visible />
+    <section
+        class="about-me-section my-24 mx-auto max-w-5xl bg-white rounded-3xl shadow-xl p-6 md:p-12 font-sans grid grid-cols-1 lg:grid-cols-5 gap-10"
+    >
+        
+        <div class="content-wrapper lg:col-span-3">
+            <div class="profile-photo-container mb-8">
+                <img
+                    src="/images/yo-foto.jpg"
+                    alt="Tu foto de perfil"
+                    class="profile-photo w-full max-w-sm h-auto object-cover rounded-xl mx-auto md:mx-0"
+                    loading="lazy"
+                />
+            </div>
+
+            <h2
+                class="section-title text-4xl lg:text-5xl text-pink-500 font-bold mb-5 overflow-hidden text-center md:text-left"
+            >
+                <span class="reveal-text block mt-5">Hola!</span>
+            </h2>
+
+            <p class="intro-paragraph reveal-line mb-4 text-lg max-w-md text-center md:text-left mx-auto md:mx-0">
+                Mi nombre es Angie. Me encanta crear y contar historias a través de mis diseños. Busco contribuir con mi creatividad y habilidades a proyectos innovadores.
+            </p>
+
+            <div class="contact-info mt-10 hidden md:flex justify-start">
+                <button
+                    class="open-modal-trigger contact-button-new reveal-line w-full max-w-xs bg-pink-500 text-white font-semibold py-3 px-6 rounded-lg text-lg cursor-pointer transition-all duration-300 ease-in-out hover:bg-pink-600 hover:shadow-md"
+                >
+                    ¡Hablemos de tu proyecto!
+                </button>
+            </div>
+        </div>
+
+        <div class="skills-info-container pt-5 lg:col-span-2 border-t lg:border-t-0 lg:border-l border-gray-100 lg:pl-8 mt-8 lg:mt-0">
+            <div class="skills-icon-group">
+                <h3
+                    class="text-xl text-gray-800 font-bold mt-2 mb-4 border-b-2 border-gray-800 pb-1"
+                >
+                    SKILLS
+                </h3>
+
+                <div class="icon-grid grid grid-cols-3 md:grid-cols-4 lg:grid-cols-3 gap-3 mb-8">
+                    
+                    <div
+                        class="skill-icon-card bg-gray-200 p-3 h-[70px] flex items-center justify-center rounded-lg cursor-default"
+                        data-app="Illustrator"
+                    >
+                        <img
+                            src={aiIcon.src}
+                            alt="Logo de Illustrator"
+                            class="skill-logo h-10 w-auto object-contain"
+                        />
+                    </div>
+                    <div
+                        class="skill-icon-card bg-gray-200 p-3 h-[70px] flex items-center justify-center rounded-lg cursor-default"
+                        data-app="Figma"
+                    >
+                        <img
+                            src={figIcon.src}
+                            alt="Logo de Figma"
+                            class="skill-logo h-10 w-auto object-contain"
+                        />
+                    </div>
+                    <div
+                        class="skill-icon-card bg-gray-200 p-3 h-[70px] flex items-center justify-center rounded-lg cursor-default"
+                        data-app="Photoshop"
+                    >
+                        <img
+                            src={psIcon.src} 
+                            alt="Logo de Photoshop"
+                            class="skill-logo h-10 w-auto object-contain"
+                        />
+                    </div>
+                    <div
+                        class="skill-icon-card bg-gray-200 p-3 h-[70px] flex items-center justify-center rounded-lg cursor-default"
+                        data-app="AfterEffects"
+                    >
+                        <img
+                            src={aeIcon.src}
+                            alt="Logo de After Effects"
+                            class="skill-logo h-10 w-auto object-contain"
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <div class="skills-container space-y-4">
+                <div class="skill-item">
+                    <div class="skill-header flex justify-between items-center text-sm font-semibold">
+                        <h4 class="text-base font-bold text-gray-800 mb-0">Illustrator</h4>
+                        <span class="skill-percentage font-bold text-pink-500" data-level="90%">90%</span>
+                    </div>
+                    <div class="skill-bar-track bg-gray-200 h-2 rounded-full mb-1 overflow-hidden">
+                        <div class="skill-bar bg-pink-500 h-full" data-level="90%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header flex justify-between items-center text-sm font-semibold">
+                        <h4 class="text-base font-bold text-gray-800 mb-0">Figma</h4>
+                        <span class="skill-percentage font-bold text-pink-500" data-level="85%">85%</span>
+                    </div>
+                    <div class="skill-bar-track bg-gray-200 h-2 rounded-full mb-1 overflow-hidden">
+                        <div class="skill-bar bg-pink-500 h-full" data-level="85%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header flex justify-between items-center text-sm font-semibold">
+                        <h4 class="text-base font-bold text-gray-800 mb-0">Photoshop</h4>
+                        <span class="skill-percentage font-bold text-pink-500" data-level="80%">80%</span>
+                    </div>
+                    <div class="skill-bar-track bg-gray-200 h-2 rounded-full mb-1 overflow-hidden">
+                        <div class="skill-bar bg-pink-500 h-full" data-level="80%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header flex justify-between items-center text-sm font-semibold">
+                        <h4 class="text-base font-bold text-gray-800 mb-0">After Effects</h4>
+                        <span class="skill-percentage font-bold text-pink-500" data-level="80%">80%</span>
+                    </div>
+                    <div class="skill-bar-track bg-gray-200 h-2 rounded-full mb-1 overflow-hidden">
+                        <div class="skill-bar bg-pink-500 h-full" data-level="80%"></div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="mb-6 mt-8 reveal-line">
+                <InfoTabs client:visible />
+            </div>
+
+            <div class="mt-8 block md:hidden">
+                <button
+                    class="open-modal-trigger contact-button-new w-full bg-pink-500 text-white font-semibold py-4 px-6 rounded-lg text-lg cursor-pointer transition-all duration-300 ease-in-out hover:bg-pink-600 shadow-md"
+                >
+                    ¡Hablemos de tu proyecto!
+                </button>
+            </div>
+
+        </div>
+        
+    </section>
+
+    <div id="contact-modal" class="modal-overlay">
+        <div class="modal-content bg-white p-6 md:p-8 rounded-xl shadow-2xl relative">
+            <button
+                id="close-contact-modal"
+                class="modal-close-button absolute top-2 right-3 md:top-4 md:right-6 text-3xl md:text-4xl text-gray-500 hover:text-gray-800 transition leading-none font-light z-50"
+                aria-label="Cerrar">&times;</button
+            >
+            <ContactForm
+                initialSubject="Consulta de proyecto desde la página Sobre Mí"
+                projectId="SobreMi_Consulta_General"
+            />
+        </div>
     </div>
 
-    <div class="mt-8 block md:hidden">
-        <button
-          class="open-modal-trigger contact-button-new w-full bg-pink-500 text-white font-semibold py-4 px-6 rounded-lg text-lg cursor-pointer transition-all duration-300 ease-in-out hover:bg-pink-600 shadow-md"
-        >
-          ¡Hablemos de tu proyecto!
-        </button>
-      </div>
+    <style>
+        /* ... Tu CSS ... */
+        .contact-button-new:hover {
+            background-color: rgb(202, 34, 118);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .reveal-text {
+            opacity: 0;
+            transform: translateY(100%);
+        }
+        .intro-paragraph {
+            opacity: 0;
+        }
+        .reveal-line {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: none !important;
+        }
+        .skill-icon-card {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        .skill-percentage {
+            opacity: 0;
+        }
+        .skill-bar {
+            width: 0;
+        }
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+        .modal-overlay.is-open {
+            visibility: visible;
+            opacity: 1;
+        }
+        .modal-content {
+            max-width: 650px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding-top: 20px !important;
+            padding-bottom: 20px !important;
+        }
+    </style>
 
-  </div>
-  
-</section>
+    <script>
+        /* ... Tu Script de GSAP y el Modal ... */
+        import { gsap } from "gsap";
+        import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-<div id="contact-modal" class="modal-overlay">
-  <div class="modal-content bg-white p-6 md:p-8 rounded-xl shadow-2xl relative">
-    <button
-      id="close-contact-modal"
-      class="modal-close-button absolute top-2 right-3 md:top-4 md:right-6 text-3xl md:text-4xl text-gray-500 hover:text-gray-800 transition leading-none font-light z-50"
-      aria-label="Cerrar">&times;</button
-    >
-    <ContactForm
-      initialSubject="Consulta de proyecto desde la página Sobre Mí"
-      projectId="SobreMi_Consulta_General"
-    />
-  </div>
-</div>
+        gsap.registerPlugin(ScrollTrigger);
 
-<Footer />
+        document.addEventListener("DOMContentLoaded", () => {
+            const mainContainer = document.querySelector(".about-me-section");
+            const contactButtons = document.querySelectorAll(".contact-button-new");
 
-<style>
-  .contact-button-new:hover {
-    background-color: rgb(202, 34, 118);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  .reveal-text {
-    opacity: 0;
-    transform: translateY(100%);
-  }
-  .intro-paragraph {
-    opacity: 0;
-  }
-  .reveal-line {
-    opacity: 0;
-    transform: translateY(10px);
-    transition: none !important;
-  }
-  .skill-icon-card {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  .skill-percentage {
-    opacity: 0;
-  }
-  .skill-bar {
-    width: 0;
-  }
-  .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.85);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.3s, visibility 0.3s;
-  }
-  .modal-overlay.is-open {
-    visibility: visible;
-    opacity: 1;
-  }
-  .modal-content {
-    max-width: 650px;
-    width: 90%;
-    max-height: 90vh;
-    overflow-y: auto;
-    padding-top: 20px !important;
-    padding-bottom: 20px !important;
-  }
-</style>
+            const textElements = gsap.utils.toArray(".reveal-line");
 
-<script>
-  import { gsap } from "gsap";
-  import { ScrollTrigger } from "gsap/ScrollTrigger";
+            const openButtons = document.querySelectorAll(".open-modal-trigger");
+            const closeButton = document.getElementById("close-contact-modal");
+            const modal = document.getElementById("contact-modal");
+            const modalContent = document.querySelector(".modal-content") as HTMLElement;
 
-  gsap.registerPlugin(ScrollTrigger);
+            if (closeButton && modal && modalContent) {
+                const closeModal = () => {
+                    gsap.to(modalContent, {
+                        y: -30, opacity: 0, duration: 0.2,
+                        onComplete: () => {
+                            modal.classList.remove("is-open");
+                            document.body.style.overflow = "";
+                            gsap.set(modalContent, { opacity: 1, y: 0 });
+                        },
+                    });
+                };
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const mainContainer = document.querySelector(".about-me-section");
-    const contactButtons = document.querySelectorAll(".contact-button-new");
+                openButtons.forEach(btn => {
+                    btn.addEventListener("click", () => {
+                        modal.classList.add("is-open");
+                        document.body.style.overflow = "hidden";
+                        gsap.fromTo(
+                            modalContent,
+                            { opacity: 0, y: 50 },
+                            { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.7)" }
+                        );
+                    });
+                });
 
-    const textElements = gsap.utils.toArray(".reveal-line");
+                closeButton.addEventListener("click", closeModal);
+                modal.addEventListener("click", (e) => {
+                    if (e.target === modal) closeModal();
+                });
+                document.addEventListener("keydown", (e) => {
+                    if (e.key === "Escape" && modal.classList.contains("is-open")) closeModal();
+                });
+            }
 
-    const openButtons = document.querySelectorAll(".open-modal-trigger");
-    const closeButton = document.getElementById("close-contact-modal");
-    const modal = document.getElementById("contact-modal");
-    const modalContent = document.querySelector(".modal-content") as HTMLElement;
+            if (contactButtons.length > 0) {
+                contactButtons.forEach(btn => {
+                    gsap.to(btn, {
+                        scale: 1.03,
+                        duration: 0.5,
+                        repeat: -1,
+                        yoyo: true,
+                        ease: "power1.inOut",
+                        delay: 3,
+                    });
+                });
+            }
 
-    if (closeButton && modal && modalContent) {
-      const closeModal = () => {
-        gsap.to(modalContent, {
-          y: -30, opacity: 0, duration: 0.2,
-          onComplete: () => {
-            modal.classList.remove("is-open");
-            document.body.style.overflow = "";
-            gsap.set(modalContent, { opacity: 1, y: 0 });
-          },
+            const textTimeline = gsap.timeline({
+                scrollTrigger: {
+                    trigger: mainContainer,
+                    start: "top 80%",
+                    toggleActions: "play none none none",
+                },
+            });
+
+            textTimeline.to(".reveal-text", { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }, 0);
+            textTimeline.to(".intro-paragraph", { opacity: 1, duration: 0.6 }, 0.2);
+            textTimeline.to(textElements, { y: 0, opacity: 1, duration: 0.5, stagger: 0.1 }, 0.5);
+
+            gsap.utils.toArray(".skill-item").forEach((skillItem) => {
+                const itemElement = skillItem as Element;
+                const bar = itemElement.querySelector(".skill-bar") as HTMLElement;
+                const percentageText = itemElement.querySelector(".skill-percentage") as HTMLElement;
+                if (!bar || !percentageText) return;
+
+                const level = bar.getAttribute("data-level")!;
+
+                const barTimeline = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: itemElement,
+                        start: "top 90%",
+                        toggleActions: "play none none none",
+                    },
+                });
+                barTimeline.to(bar, { width: level, duration: 1.5, ease: "power2.out" }, 0);
+                barTimeline.to(percentageText, { opacity: 1, duration: 0.5, ease: "power2.out" }, 0.5);
+            });
+
+            gsap.to(".skill-icon-card", {
+                opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.5)", stagger: 0.08,
+                scrollTrigger: {
+                    trigger: ".skills-icon-group",
+                    start: "top 75%",
+                    toggleActions: "play none none none",
+                },
+            });
         });
-      };
-
-      openButtons.forEach(btn => {
-          btn.addEventListener("click", () => {
-            modal.classList.add("is-open");
-            document.body.style.overflow = "hidden";
-            gsap.fromTo(
-              modalContent,
-              { opacity: 0, y: 50 },
-              { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.7)" }
-            );
-          });
-      });
-
-      closeButton.addEventListener("click", closeModal);
-      modal.addEventListener("click", (e) => {
-        if (e.target === modal) closeModal();
-      });
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && modal.classList.contains("is-open")) closeModal();
-      });
-    }
-
-    if (contactButtons.length > 0) {
-      contactButtons.forEach(btn => {
-        gsap.to(btn, {
-            scale: 1.03,
-            duration: 0.5,
-            repeat: -1,
-            yoyo: true,
-            ease: "power1.inOut",
-            delay: 3,
-        });
-      });
-    }
-
-    const textTimeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: mainContainer,
-        start: "top 80%",
-        toggleActions: "play none none none",
-      },
-    });
-
-    textTimeline.to(".reveal-text", { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }, 0);
-    textTimeline.to(".intro-paragraph", { opacity: 1, duration: 0.6 }, 0.2);
-    textTimeline.to(textElements, { y: 0, opacity: 1, duration: 0.5, stagger: 0.1 }, 0.5);
-
-    gsap.utils.toArray(".skill-item").forEach((skillItem) => {
-      const itemElement = skillItem as Element;
-      const bar = itemElement.querySelector(".skill-bar") as HTMLElement;
-      const percentageText = itemElement.querySelector(".skill-percentage") as HTMLElement;
-      if (!bar || !percentageText) return;
-
-      const level = bar.getAttribute("data-level")!;
-
-      const barTimeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: itemElement,
-          start: "top 90%",
-          toggleActions: "play none none none",
-        },
-      });
-      barTimeline.to(bar, { width: level, duration: 1.5, ease: "power2.out" }, 0);
-      barTimeline.to(percentageText, { opacity: 1, duration: 0.5, ease: "power2.out" }, 0.5);
-    });
-
-    gsap.to(".skill-icon-card", {
-      opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.5)", stagger: 0.08,
-      scrollTrigger: {
-        trigger: ".skills-icon-group",
-        start: "top 75%",
-        toggleActions: "play none none none",
-      },
-    });
-  });
-</script>
+    </script>
+     <Footer />
+</Layout>

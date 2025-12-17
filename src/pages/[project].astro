@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar.astro";
 import ContactForm from "../components/ContactForm.astro";
 import Footer from "../components/Footer.astro";
 
-// --- GENERACIÓN DE RUTAS ---
+// GENERACION DE RUTAS
 export async function getStaticPaths() {
   return projects.map((project) => ({
     params: { project: project.slug },
@@ -13,7 +13,7 @@ export async function getStaticPaths() {
   }));
 }
 
-//  CARGAR DATOS 
+//  CARGAR DATOS
 const { projectData } = Astro.props;
 
 const {
@@ -36,54 +36,57 @@ const mainImage = galleryImages[0];
 const secondaryImages = galleryImages.slice(1);
 ---
 
-<head>
-  <meta charset="UTF-8" />
-</head>
-
-<Navbar />
-
 <Layout title={title}>
+  <Navbar />
   <main class="max-w-6xl mx-auto mt-24 md:mt-32 mb-12 px-6 font-sans">
-    
     <header class="mb-8 md:mb-12 text-center md:text-left">
-      <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4">{title}</h1>
-      <p class="text-lg md:text-xl text-gray-500 max-w-3xl leading-relaxed mx-auto md:mx-0">
+      <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4">
+        {title}
+      </h1>
+      <p
+        class="text-lg md:text-xl text-gray-500 max-w-3xl leading-relaxed mx-auto md:mx-0"
+      >
         {description}
       </p>
     </header>
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
-      
       <div class="lg:col-span-2 space-y-8 md:space-y-12">
-        
         <div class="space-y-4">
-            <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-100 max-w-xl mx-auto">
-              <img
-                  src={mainImage}
-                  alt={`Imagen principal de ${title}`}
-                  id="gallery-main-image"
-                  class="w-full h-auto object-cover transition-opacity duration-300"
-              />
-            </div>
+          <div
+            class="rounded-2xl overflow-hidden shadow-lg border border-gray-100 max-w-xl mx-auto"
+          >
+            <img
+              src={mainImage}
+              alt={`Imagen principal de ${title}`}
+              id="gallery-main-image"
+              class="w-full h-auto object-cover transition-opacity duration-300"
+            />
+          </div>
 
-            {secondaryImages.length > 0 && (
-            <div class="flex gap-3 overflow-x-auto pb-2 scrollbar-hide touch-pan-x">
+          {
+            secondaryImages.length > 0 && (
+              <div class="flex gap-3 overflow-x-auto pb-2 scrollbar-hide touch-pan-x">
+                               {" "}
                 <img
-                    src={mainImage}
-                    alt="Vista principal"
-                    class="thumbnail-image w-20 h-20 md:w-24 md:h-24 object-cover rounded-lg cursor-pointer border-2 border-pink-500 transition-all hover:scale-105 shrink-0"
-                    data-img-url={mainImage}
+                  src={mainImage}
+                  alt="Vista principal"
+                  class="thumbnail-image w-20 h-20 md:w-24 md:h-24 object-cover rounded-lg cursor-pointer border-2 border-pink-500 transition-all hover:scale-105 shrink-0"
+                  data-img-url={mainImage}
                 />
+                               {" "}
                 {secondaryImages.map((imgUrl, index) => (
-                <img
+                  <img
                     src={imgUrl}
                     alt={`Vista ${index + 1}`}
                     class="thumbnail-image w-20 h-20 md:w-24 md:h-24 object-cover rounded-lg cursor-pointer border-2 border-transparent hover:border-pink-300 transition-all hover:scale-105 shrink-0"
                     data-img-url={imgUrl}
-                />
+                  />
                 ))}
-            </div>
-            )}
+                           {" "}
+              </div>
+            )
+          }
         </div>
 
         <section class="prose prose-lg text-gray-700 max-w-none">
@@ -94,55 +97,72 @@ const secondaryImages = galleryImages.slice(1);
             {fullDescription || description}
           </p>
 
-          {challenge && (
-            <div class="mt-8">
-              <h4 class="text-lg md:text-xl font-bold text-gray-900 mb-2">
-                Desafío
-              </h4>
-              <p class="text-base md:text-lg">{challenge}</p>
-            </div>
-          )}
+          {
+            challenge && (
+              <div class="mt-8">
+                             {" "}
+                <h4 class="text-lg md:text-xl font-bold text-gray-900 mb-2">
+                                  Desafío              {" "}
+                </h4>
+                              <p class="text-base md:text-lg">{challenge}</p>   
+                       {" "}
+              </div>
+            )
+          }
 
-          {result && (
-            <div class="mt-8">
-              <h4 class="text-lg md:text-xl font-bold text-gray-900 mb-2">
-                Resultado
-              </h4>
-              <p class="text-base md:text-lg">{result}</p>
-            </div>
-          )}
+          {
+            result && (
+              <div class="mt-8">
+                             {" "}
+                <h4 class="text-lg md:text-xl font-bold text-gray-900 mb-2">
+                                  Resultado              {" "}
+                </h4>
+                              <p class="text-base md:text-lg">{result}</p>     
+                     {" "}
+              </div>
+            )
+          }
 
           {/* VIDEO O BOTON PDF */}
           <div class="mt-8 pt-8 border-t border-gray-100">
-            {videoUrl ? (
-               <div>
+            {
+              videoUrl ? (
+                <div>
+                                   {" "}
                   <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-100 bg-black">
-                    <video 
-                        controls 
-                        class="w-full h-auto aspect-video" 
-                        poster={mainImage}
-                        src={videoUrl}
+                                       {" "}
+                    <video
+                      controls
+                      class="w-full h-auto aspect-video"
+                      poster={mainImage}
+                      src={videoUrl}
                     >
-                        Tu navegador no soporta videos.
+                                              Tu navegador no soporta videos.  
+                                       {" "}
                     </video>
+                                     {" "}
                   </div>
-               </div>
-            ) : (
-               pdfLink && (
+                                 
+                </div>
+              ) : (
+                pdfLink && (
                   <div class="text-center md:text-left">
+                                       {" "}
                     <a
                       href={pdfLink}
                       target="_blank"
                       rel="noopener noreferrer"
                       class="inline-block w-full md:w-auto text-center bg-pink-500 text-white font-bold py-4 px-8 rounded-full shadow-lg hover:bg-pink-600 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                     >
-                      Ver resultado (PDF)
+                                            Ver resultado (PDF)                
+                         {" "}
                     </a>
+                                     {" "}
                   </div>
-               )
-            )}
+                )
+              )
+            }
           </div>
-
         </section>
       </div>
 
@@ -156,27 +176,42 @@ const secondaryImages = galleryImages.slice(1);
 
           <div class="space-y-6">
             <div>
-              <span class="block text-sm text-gray-500 font-semibold uppercase tracking-wider">Rol</span>
+              <span
+                class="block text-sm text-gray-500 font-semibold uppercase tracking-wider"
+                >Rol</span
+              >
               <p class="text-gray-900 font-medium">{role}</p>
             </div>
 
             <div>
-              <span class="block text-sm text-gray-500 font-semibold uppercase tracking-wider">Año</span>
+              <span
+                class="block text-sm text-gray-500 font-semibold uppercase tracking-wider"
+                >Año</span
+              >
               <p class="text-gray-900 font-medium">{year}</p>
             </div>
 
-            {tools.length > 0 && (
-              <div>
-                <span class="block text-sm text-gray-500 font-semibold uppercase tracking-wider mb-2">Stack / Herramientas</span>
-                <div class="flex flex-wrap gap-2">
-                  {tools.map((t) => (
-                    <span class="bg-white px-3 py-1 rounded-full text-sm text-gray-700 border border-gray-200 shadow-sm">
-                      {t}
-                    </span>
-                  ))}
+            {
+              tools.length > 0 && (
+                <div>
+                                 {" "}
+                  <span class="block text-sm text-gray-500 font-semibold uppercase tracking-wider mb-2">
+                    Stack / Herramientas
+                  </span>
+                                 {" "}
+                  <div class="flex flex-wrap gap-2">
+                                     {" "}
+                    {tools.map((t) => (
+                      <span class="bg-white px-3 py-1 rounded-full text-sm text-gray-700 border border-gray-200 shadow-sm">
+                                              {t}                   {" "}
+                      </span>
+                    ))}
+                                   {" "}
+                  </div>
+                               {" "}
                 </div>
-              </div>
-            )}
+              )
+            }
           </div>
 
           <div class="mt-8">
@@ -191,11 +226,11 @@ const secondaryImages = galleryImages.slice(1);
       </aside>
     </div>
   </main>
+  <Footer />
 </Layout>
 
 <div id="contact-modal" class="modal-overlay">
   <div class="modal-content bg-white p-6 md:p-8 rounded-xl shadow-2xl relative">
-    
     <button
       id="close-contact-modal"
       class="modal-close-button absolute top-2 right-3 md:top-4 md:right-6 text-3xl md:text-4xl text-gray-500 hover:text-gray-800 transition leading-none font-light z-50"
@@ -209,13 +244,11 @@ const secondaryImages = galleryImages.slice(1);
   </div>
 </div>
 
-<Footer />
-
 <script>
+  // ... Tu script de GSAP y modal ...
   import { gsap } from "gsap";
 
   document.addEventListener("DOMContentLoaded", () => {
-    // --- LÓGICA DE GALERÍA ---
     const mainImage = document.getElementById("gallery-main-image");
     const thumbnails = document.querySelectorAll(".thumbnail-image");
 
@@ -250,9 +283,8 @@ const secondaryImages = galleryImages.slice(1);
           }
         });
       });
-    }
+    } // --- LÓGICA DEL MODAL ---
 
-    // --- LÓGICA DEL MODAL ---
     const openButton = document.getElementById("open-contact-modal");
     const closeButton = document.getElementById("close-contact-modal");
     const modal = document.getElementById("contact-modal");

@@ -5,11 +5,8 @@ import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 ---
 
-<head>
-  <meta charset="UTF-8" />
-</head>
-<Navbar />
-<Layout title="Mis Proyectos | Portafolio">
+<Layout title="Mis proyectos">
+    <Navbar />
   <section class="max-w-7xl mx-auto py-12 px-4 font-sans md:px-6 mt-11">
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
       {
@@ -43,25 +40,24 @@ import Footer from "../components/Footer.astro";
       }
     </div>
   </section>
-  <Footer />
 
   <style>
-
     .project-card {
       opacity: 0;
       transform: translateY(50px) rotateX(10deg);
-    } /* animacion de la imagen   */
+    } 
     .project-card:hover .card-image-scale {
       transform: scale(1.05);
-    } /* animacion de opacidad del texto  */
+    } 
     .project-card:hover .card-link-overlay-tailwind {
       opacity: 1;
     }
   </style>
   <script>
- import { gsap } from "gsap";
+    import { gsap } from "gsap";
     import { ScrollTrigger } from "gsap/ScrollTrigger";
     gsap.registerPlugin(ScrollTrigger);
+    
     document.addEventListener("DOMContentLoaded", () => {
       const cards = gsap.utils.toArray(".project-card");
       cards.forEach((card, index) => {
@@ -81,4 +77,5 @@ import Footer from "../components/Footer.astro";
       });
     });
   </script>
+  <Footer />
 </Layout>
