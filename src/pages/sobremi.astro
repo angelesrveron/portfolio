@@ -4,7 +4,6 @@ import Footer from "../components/Footer.astro";
 import ContactForm from "../components/ContactForm.astro";
 import InfoTabs from "../components/InfoTabs.jsx";
 
-// 👇 IMPORTAMOS LAS IMÁGENES DE LOS SKILLS AQUÍ
 import psIcon from "../assets/ps.png";
 import aiIcon from "../assets/ai.png";
 import figIcon from "../assets/fig.png";
@@ -60,16 +59,7 @@ import aeIcon from "../assets/ae.png";
       </h3>
 
       <div class="icon-grid grid grid-cols-3 md:grid-cols-4 lg:grid-cols-3 gap-3 mb-8">
-        <div
-          class="skill-icon-card bg-gray-200 p-3 h-[70px] flex items-center justify-center rounded-lg cursor-default"
-          data-app="Photoshop"
-        >
-          <img
-            src={psIcon.src} 
-            alt="Logo de Photoshop"
-            class="skill-logo h-10 w-auto object-contain"
-          />
-        </div>
+        
         <div
           class="skill-icon-card bg-gray-200 p-3 h-[70px] flex items-center justify-center rounded-lg cursor-default"
           data-app="Illustrator"
@@ -87,6 +77,16 @@ import aeIcon from "../assets/ae.png";
           <img
             src={figIcon.src}
             alt="Logo de Figma"
+            class="skill-logo h-10 w-auto object-contain"
+          />
+        </div>
+        <div
+          class="skill-icon-card bg-gray-200 p-3 h-[70px] flex items-center justify-center rounded-lg cursor-default"
+          data-app="Photoshop"
+        >
+          <img
+            src={psIcon.src} 
+            alt="Logo de Photoshop"
             class="skill-logo h-10 w-auto object-contain"
           />
         </div>
@@ -113,6 +113,15 @@ import aeIcon from "../assets/ae.png";
           <div class="skill-bar bg-pink-500 h-full" data-level="90%"></div>
         </div>
       </div>
+       <div class="skill-item">
+        <div class="skill-header flex justify-between items-center text-sm font-semibold">
+          <h4 class="text-base font-bold text-gray-800 mb-0">Figma</h4>
+          <span class="skill-percentage font-bold text-pink-500" data-level="85%">85%</span>
+        </div>
+        <div class="skill-bar-track bg-gray-200 h-2 rounded-full mb-1 overflow-hidden">
+          <div class="skill-bar bg-pink-500 h-full" data-level="85%"></div>
+        </div>
+      </div>
       <div class="skill-item">
         <div class="skill-header flex justify-between items-center text-sm font-semibold">
           <h4 class="text-base font-bold text-gray-800 mb-0">Photoshop</h4>
@@ -131,15 +140,7 @@ import aeIcon from "../assets/ae.png";
           <div class="skill-bar bg-pink-500 h-full" data-level="80%"></div>
         </div>
       </div>
-      <div class="skill-item">
-        <div class="skill-header flex justify-between items-center text-sm font-semibold">
-          <h4 class="text-base font-bold text-gray-800 mb-0">Figma</h4>
-          <span class="skill-percentage font-bold text-pink-500" data-level="85%">85%</span>
-        </div>
-        <div class="skill-bar-track bg-gray-200 h-2 rounded-full mb-1 overflow-hidden">
-          <div class="skill-bar bg-pink-500 h-full" data-level="85%"></div>
-        </div>
-      </div>
+     
     </div>
     
     <div class="mb-6 mt-8 reveal-line">

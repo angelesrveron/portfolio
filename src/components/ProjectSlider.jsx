@@ -38,7 +38,7 @@ export default function ProjectSlider({ projects }) {
   const currentProject = projects[currentIndex];
 
   return (
-    <div className="w-full mx-auto px-4 py-8 relative group mt-5">
+    <div className="w-full max-w-2xl mx-auto px-4 py-8 relative group mt-5">
       <h3 className="text-3xl font-bold text-center mb-6 md:mb-10">Proyectos destacados</h3>
 
       <div 
@@ -55,7 +55,7 @@ export default function ProjectSlider({ projects }) {
         <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-black/70 to-transparent p-4 md:p-8 text-white">
           
           <p className="text-xs md:text-sm  text-white font-normal uppercase tracking-widest mb-1 text-outline">
-            {currentProject.category || "Diseño & Desarrollo"} 
+            {currentProject.category} 
           </p>
           
           <h2 className="text-2xl md:text-3xl font-bold mb-3 text-outline-white">{currentProject.title}</h2>

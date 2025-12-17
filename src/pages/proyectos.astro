@@ -34,7 +34,7 @@ import Footer from "../components/Footer.astro";
                 {" "}
                 <h2 class="text-xl font-bold mb-1">{project.title}</h2>{" "}
                 <span class="text-pink-600 font-semibold opacity-0 card-link-overlay-tailwind">
-                  Ver Detalles →
+                  Ver Detalles
                 </span>{" "}
               </div>{" "}
             </a>
@@ -46,20 +46,20 @@ import Footer from "../components/Footer.astro";
   <Footer />
 
   <style>
-    /*      * SOLO MANTENEMOS ESTILOS ESPECÍFICOS DE ANIMACIÓN * EL RESTO DEL LAYOUT AHORA ES TAILWIND */ /* Clase para el estado inicial de GSAP (transparente y movido) */
+
     .project-card {
       opacity: 0;
       transform: translateY(50px) rotateX(10deg);
-    } /* Animación de la Imagen al pasar el mouse (CSS puro) */
+    } /* animacion de la imagen   */
     .project-card:hover .card-image-scale {
       transform: scale(1.05);
-    } /* Animación de Opacidad del texto al pasar el mouse (CSS puro) */
+    } /* animacion de opacidad del texto  */
     .project-card:hover .card-link-overlay-tailwind {
       opacity: 1;
     }
   </style>
   <script>
-    /* El script de GSAP/ScrollTrigger se mantiene igual, ya que es lógica pura */ import { gsap } from "gsap";
+ import { gsap } from "gsap";
     import { ScrollTrigger } from "gsap/ScrollTrigger";
     gsap.registerPlugin(ScrollTrigger);
     document.addEventListener("DOMContentLoaded", () => {
