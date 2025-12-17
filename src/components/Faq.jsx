@@ -19,7 +19,7 @@ const faqData = [
   {
     id: 4,
     question: "¿Cómo te contacto?",
-    answer: "Puedes usar el formulario de contacto de esta página o escribirme por LinkedIn."
+    answer: "Podés usar el formulario de contacto de esta página o escribirme por LinkedIn."
   }
 ];
 
