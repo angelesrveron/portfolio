@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-// Puedes editar estas preguntas con tu información real
 const faqData = [
   {
     id: 1,
@@ -15,7 +14,7 @@ const faqData = [
   {
     id: 3,
     question: "¿Cómo es tu proceso de trabajo?",
-    answer: "Primero analizamos tus necesidades, luego paso a la etapa de wireframing/diseño y finalmente al desarrollo e implementación."
+    answer: "Primero analizo tus necesidades, luego paso a la etapa de wireframing/diseño y finalmente al desarrollo e implementación."
   },
   {
     id: 4,
@@ -25,11 +24,11 @@ const faqData = [
 ];
 
 export default function FaqAccordion() {
-  // Estado para saber cuál pregunta está abierta (null = ninguna)
+  // estado para saber cual pregunta está abierta (null = ninguna)
   const [openId, setOpenId] = useState(null);
 
   const toggleAccordion = (id) => {
-    // Si la que toco ya está abierta, la cierro (null), si no, la abro
+    // si la que toco ya esta abierta, la cierro (null), si no, la abro
     setOpenId(openId === id ? null : id);
   };
 
@@ -52,7 +51,7 @@ export default function FaqAccordion() {
               <span className="font-semibold text-lg">
                 {item.question}
               </span>
-              {/* Ícono que rota si está abierto */}
+              {/* icono que rota si esta abierto */}
               <span 
                 className={`text-pink-500 font-bold text-2xl transform transition-transform duration-300 ${openId === item.id ? 'rotate-45' : 'rotate-0'}`}
               >
@@ -60,7 +59,7 @@ export default function FaqAccordion() {
               </span>
             </button>
 
-            {/* Contenido desplegable */}
+            {/* contenido desplegable */}
             <div 
               className={`
                 px-6 bg-gray-50 text-gray-600 overflow-hidden transition-all duration-300 ease-in-out

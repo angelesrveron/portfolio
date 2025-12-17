@@ -34,7 +34,7 @@ export default function InfoTabs() {
       {/* --- CONTENIDO --- */}
       <div className="p-8 min-h-[150px]">
         
-        {/* Pestaña: Educación */}
+        {/* pestaña: educacion */}
         {activeTab === 'educacion' && (
           <div className="animate-fade-in space-y-6">
             
@@ -42,7 +42,7 @@ export default function InfoTabs() {
               <h3 className="font-bold text-lg text-gray-800">Licenciatura en Tecnología Multimedial</h3>
               <p className="text-gray-600 text-sm">Universidad Maimónides</p>
               <span className="inline-block bg-pink-100 text-pink-700 text-xs px-2 py-1 rounded-full mt-1 font-semibold">
-                En curso
+                En curso (2022 - Presente)
               </span>
             </div>
 
@@ -50,28 +50,28 @@ export default function InfoTabs() {
               <h3 className="font-bold text-lg text-gray-800">Tecnicatura en Comunicación Interactiva y Diseño Multimedial</h3>
               <p className="text-gray-600 text-sm">Universidad Maimónides</p>
               <span className="inline-block bg-green-100 text-green-700 text-xs px-2 py-1 rounded-full mt-1 font-semibold">
-                Finalizado
+                Finalizado (2024)
               </span>
             </div>
 
           </div>
         )}
 
-        {/* Pestaña: Cursos */}
+        {/* pestaña: cursos */}
         {activeTab === 'cursos' && (
           <div className="animate-fade-in">
             <h3 className="font-bold text-gray-800 mb-4">Certificaciones</h3>
             <ul className="space-y-3">
               
-              {/* ITEM CON BOTÓN DE CERTIFICADO */}
+              {/* ITEM CON BOTON DE CERTIFICADO */}
               <li className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-gray-50 p-4 rounded-lg border border-gray-100">
                 
-                {/* Nombre del curso */}
+                {/* nombre del curso */}
                 <div className="flex items-center gap-3">
                   <span className="text-gray-700 font-medium">Curso de Photoshop</span>
                 </div>
 
-                {/* Botón del Link */}
+                {/* boton link */}
                 <a 
                   href="https://drive.google.com/file/d/1jGM7SQQ3_3ZQ4VQVTcsOOBbvp3L7YC_a/view?usp=sharing"  
                   target="_blank" 
