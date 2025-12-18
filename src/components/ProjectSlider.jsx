@@ -1,24 +1,28 @@
 import React, { useState, useRef } from 'react';
 
 export default function ProjectSlider({ projects }) {
+  //estado que guarda el index del proyecto actual empieza en 0
   const [currentIndex, setCurrentIndex] = useState(0);
   
+  //para el slider tactil
   const touchStartX = useRef(0); 
 
   if (!projects || projects.length === 0) return null;
 
   const prevSlide = () => {
     const isFirstSlide = currentIndex === 0;
+    //si estas en el primer slide, vuelve al ultimo
     const newIndex = isFirstSlide ? projects.length - 1 : currentIndex - 1;
     setCurrentIndex(newIndex);
   };
 
   const nextSlide = () => {
+    //si estas en el ultimo slide, vuelve al primero
     const isLastSlide = currentIndex === projects.length - 1;
     const newIndex = isLastSlide ? 0 : currentIndex + 1;
     setCurrentIndex(newIndex);
   };
-
+//logica de celular...
   const handleTouchStart = (e) => {
     touchStartX.current = e.touches[0].clientX;
   };
@@ -34,7 +38,7 @@ export default function ProjectSlider({ projects }) {
       nextSlide();
     }
   };
-
+//auxiliar
   const currentProject = projects[currentIndex];
 
   return (
@@ -48,6 +52,7 @@ export default function ProjectSlider({ projects }) {
       >
         
         <div 
+        //muestra la imagen de fondo del proyecto actual
           style={{ backgroundImage: `url(${currentProject.imageUrl})` }} 
           className="w-full h-full bg-center bg-cover duration-500 ease-in-out transform hover:scale-105 transition opacity-80 group-hover:opacity-100"
         ></div>
@@ -86,6 +91,7 @@ export default function ProjectSlider({ projects }) {
       </button>
 
       <div className="flex justify-center py-2 gap-2 mt-4">
+        {/* puntitos indicadores de los slides */}
         {projects.map((_, slideIndex) => (
           <div
             key={slideIndex}

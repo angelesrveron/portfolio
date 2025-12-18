@@ -1,6 +1,7 @@
 ---
+//proyect id para saber que proyecto consulta el usuario
 const { initialSubject, projectId } = Astro.props; 
-
+//si no se le manda nada al form el titulo por defecto es consulta de proyecto
 const subjectValue = initialSubject || "Consulta de proyecto";
 ---
 
@@ -80,27 +81,33 @@ const subjectValue = initialSubject || "Consulta de proyecto";
 </section>
 
 <script>
+    //direccion de la api que recibe los datos y los envia al mail
     const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xjknpawo'; 
 
     const form = document.getElementById('contact-form') as HTMLFormElement | null;
     const status = document.getElementById('form-status') as HTMLParagraphElement | null;
     const button = document.getElementById('submit-button') as HTMLButtonElement | null;
 
+//existe el form, el status y el button?
     if (form && status && button) {
+        //escuchar el evento submit
         form.addEventListener('submit', async (event) => {
+            //evitar recarga de pagina
             event.preventDefault(); 
-
+//deshabilitar el boton para evitar multiples envios
             button.disabled = true;
             const originalText = button.innerText;
             button.innerText = 'Enviando...';
             status.textContent = '';
             
+            //crear un objeto FormData con los datos del form
             const data = new FormData(form);
             
             try {
                 const response = await fetch(FORMSPREE_ENDPOINT, {
                     method: 'POST',
                     body: data, 
+                    // indicar que esperamos json de respuesta
                     headers: {
                         'Accept': 'application/json'
                     }

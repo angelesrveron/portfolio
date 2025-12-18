@@ -13,7 +13,7 @@ import instagram from "../assets/instagram.png";
 import ContactForm from "../components/ContactForm.astro";
 ---
 
-<Layout title="Inicio | Portafolio Angie">
+<Layout title="Inicio">
   <div id="container" class="pt-28 px-6 max-w-7xl mx-auto">
     <main>
       <div id="welcome" class="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-4">
@@ -147,21 +147,23 @@ import ContactForm from "../components/ContactForm.astro";
   import gsap from "gsap";
 
   document.addEventListener("DOMContentLoaded", () => {
-    // 1. ANIMACIÓN MARQUEE
+    // ANIMACIÓN MARQUEE
     gsap.to(".marquee-track", {
-      x: "-33.33%",
-      duration: 15,
-      ease: "linear",
-      repeat: -1,
+      x: "-33.33%", //movimiento en x para un bucle perfecto
+      duration: 15, //duracion de la animacion
+      ease: "linear", //tipo de easing para movimiento constante
+      repeat: -1, //repetir infinitamente
     });
 
-    // 2. LÓGICA DEL MODAL
+    // LOGICA DEL MODAL
     const openButtons = document.querySelectorAll(".open-modal-trigger");
     const closeButton = document.getElementById("close-contact-modal");
     const modal = document.getElementById("contact-modal");
     const modalContent = document.querySelector(".modal-content") as HTMLElement;
 
+ //si existen el modal y su contenido
     if (modal && modalContent) {
+      //funcion para cerrar el modal con animacion
       const closeModal = () => {
         gsap.to(modalContent, {
           y: -30, opacity: 0, duration: 0.2,
@@ -185,21 +187,21 @@ import ContactForm from "../components/ContactForm.astro";
       modal.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
     }
 
-    // 3. LOGOS FLOTANTES (EFECTO HOVER)
+    // LOGOS FLOTANTES (EFECTO HOVER)
     const appLogos = document.querySelectorAll(".app-logo");
     appLogos.forEach((logo) => {
       logo.addEventListener("mouseenter", () => {
         gsap.to(logo, {
-          x: gsap.utils.random(-8, 8),
+          x: gsap.utils.random(-8, 8), //cada vez un valor diferente o sea el logo se mueve distinto
           y: gsap.utils.random(-8, 8),
           rotation: gsap.utils.random(-5, 5),
           scale: 1.1,
           duration: 0.3,
-          ease: "power2.out",
+          ease: "power2.out", //empiezo rapido y desacelera
         });
       });
       logo.addEventListener("mouseleave", () => {
-        gsap.to(logo, { x: 0, y: 0, rotation: 0, scale: 1, duration: 0.3 });
+        gsap.to(logo, { x: 0, y: 0, rotation: 0, scale: 1, duration: 0.3 }); //vuelve a su posicion original
       });
     });
   });

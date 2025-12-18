@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+//arreglo con las preguntas y respuestas
 const faqData = [
   {
     id: 1,
@@ -25,8 +26,11 @@ const faqData = [
 
 export default function FaqAccordion() {
   // estado para saber cual pregunta está abierta (null = ninguna)
+  //setOpenId cambia el estado de openId
+  //usetate null pq al inicio ninguna esta abierta
   const [openId, setOpenId] = useState(null);
 
+  //funcion para abrir/cerrar acordeon
   const toggleAccordion = (id) => {
     // si la que toco ya esta abierta, la cierro (null), si no, la abro
     setOpenId(openId === id ? null : id);
@@ -39,12 +43,14 @@ export default function FaqAccordion() {
       </h3>
 
       <div className="flex flex-col gap-4">
+        {/* recorro el arreglo y muestro cada pregunta */}
         {faqData.map((item) => (
           <div 
             key={item.id} 
             className="border border-gray-200 rounded-xl bg-white shadow-sm overflow-hidden transition-all hover:shadow-md"
           >
             <button
+            // al hacer click, llamo a toggleAccordion con el id del item y cambio el estado para abrir/cerrar
               onClick={() => toggleAccordion(item.id)}
               className="w-full text-left px-6 py-4 flex justify-between items-center bg-white hover:bg-gray-50 transition-colors cursor-pointer"
             >
